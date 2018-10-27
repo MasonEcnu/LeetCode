@@ -1,7 +1,6 @@
 package com.mason.leetcode.tree.easy
 
-import java.util.Stack
-
+import java.util.*
 
 /**
  * Created by mwu on 2018/10/26
