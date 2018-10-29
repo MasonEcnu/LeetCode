@@ -26,7 +26,7 @@ package com.mason.leetcode.math.easy
  * 0 <= A[i] <= 10000
  * 0 <= K <= 10000
  */
-object SmallestRangeI {
+object SmallestRangeI908 {
 
   @JvmStatic
   fun main(args: Array<String>) {
