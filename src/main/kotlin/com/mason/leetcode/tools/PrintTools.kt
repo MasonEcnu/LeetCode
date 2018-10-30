@@ -14,6 +14,13 @@ fun printIntArray(data: IntArray) {
   println()
 }
 
+fun printArray(data: Array<*>) {
+  data.forEach {
+    print("$it ")
+  }
+  println()
+}
+
 fun printArray(data: Array<IntArray>) {
   data.forEach { outer ->
     outer.forEach { inner ->
@@ -31,4 +38,10 @@ fun printLinkedList(data: ListNode?) {
     head = head.next
   }
   println()
+}
+
+fun printCollection(data: Collection<*>) {
+  data.forEach {
+    println(it)
+  }
 }
