@@ -1,4 +1,4 @@
-package com.mason.leetcode.hashtable.easy
+package com.mason.leetcode.hash.easy
 
 import com.mason.leetcode.tools.printArray
 

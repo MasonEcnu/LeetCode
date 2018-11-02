@@ -1,4 +1,4 @@
-package com.mason.leetcode.hashtable.easy
+package com.mason.leetcode.hash.easy
 
 /**
  * Created by mwu on 2018/10/25

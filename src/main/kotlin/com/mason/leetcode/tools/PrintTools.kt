@@ -40,8 +40,22 @@ fun printLinkedList(data: ListNode?) {
   println()
 }
 
+fun printList(data: List<*>) {
+  data.forEach {
+    print("$it ")
+  }
+  println()
+}
+
 fun printCollection(data: Collection<*>) {
   data.forEach {
     println(it)
+  }
+}
+
+object PrintTools {
+  @JvmStatic
+  fun main(args: Array<String>) {
+
   }
 }
