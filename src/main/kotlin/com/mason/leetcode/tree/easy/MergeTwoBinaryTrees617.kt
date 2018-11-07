@@ -1,5 +1,6 @@
 package com.mason.leetcode.tree.easy
 
+import com.mason.leetcode.struct.TreeNode
 import java.util.*
 
 /**
@@ -11,11 +12,6 @@ import java.util.*
  *
  * Note: The merging process must start from the root nodes of both trees.
  */
-
-class TreeNode(var `val`: Int = 0) {
-  var left: TreeNode? = null
-  var right: TreeNode? = null
-}
 
 object MergeTwoBinaryTrees617 {
 

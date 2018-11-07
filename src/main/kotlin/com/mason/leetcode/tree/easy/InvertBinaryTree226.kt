@@ -1,5 +1,6 @@
 package com.mason.leetcode.tree.easy
 
+import com.mason.leetcode.struct.TreeNode
 /**
  * Created by mwu on 2018/11/5
  *
