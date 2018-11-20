@@ -23,7 +23,7 @@ object LongestCommonPrefix14 {
 
   @JvmStatic
   fun main(args: Array<String>) {
-    val strs = arrayOf("flower", "flow", "flight")
+    val strs = arrayOf("flower", "flow1", "flight")
     val result = longestCommonPrefix(strs)
     println(result)
   }
