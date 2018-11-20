@@ -26,6 +26,7 @@ compileTestKotlin {
 
 task commit2Git {
   doFirst {
+    println "Please input commit message: "
     def scanner = new Scanner(System.in)
     def message = scanner.nextLine()
     'git add .'.execute()
