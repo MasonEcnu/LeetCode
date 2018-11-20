@@ -30,6 +30,7 @@ task commit2Git {
     def message = scanner.nextLine()
     'git add .'.execute()
     ('git commit --message ' + message).execute()
+    'git push origin master'.execute()
     println message
   }
 }
