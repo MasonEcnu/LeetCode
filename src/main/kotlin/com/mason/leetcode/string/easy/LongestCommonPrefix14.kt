@@ -28,6 +28,7 @@ object LongestCommonPrefix14 {
     println(result)
   }
 
+  // 这么简单的题都不会，我觉得我是废了
   private fun longestCommonPrefix(strs: Array<String>): String {
     if (strs.isEmpty()) return ""
     var prefix = strs[0]
