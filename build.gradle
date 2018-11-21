@@ -34,3 +34,40 @@ task commit2Git {
     'git push -u origin master'.execute()
   }
 }
+
+apply plugin: GitPlugin
+
+// 定义一个实体bean对象
+class GitPluginExtension {
+  String firstOrder
+  String secondOrder
+  String thirdOrder
+}
+
+// 使用闭包方式设置值
+gitExtension {
+  firstOrder = 'git add .'
+  secondOrder = 'git commit --message '
+  thirdOrder = 'git push -u origin master'
+}
+
+class GitPlugin implements Plugin<Project> {
+  // 此方法接受一个Project对象
+  void apply(Project project) {
+    // 向extension container保存gitExtension参数
+    // 该greeting参数为GitPluginExtension的实体bean
+    project.extensions.create("gitExtension", GitPluginExtension)
+    // 向project对象添加Push2Git任务
+    def git = project.gitExtension
+    project.task('push2Git') {
+      doLast {
+        println "Please input commit message: "
+        def scanner = new Scanner(System.in)
+        def message = scanner.nextLine()
+        git.firstOrder.execute()
+        (git.secondOrder + "$message").execute()
+        git.thirdOrder.execute()
+      }
+    }
+  }
+}
