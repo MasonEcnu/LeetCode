@@ -42,9 +42,8 @@ fun printLinkedList(data: ListNode?) {
 
 fun printList(data: List<*>) {
   data.forEach {
-    print("$it ")
+    println("$it ")
   }
-  println()
 }
 
 fun printCollection(data: Collection<*>) {
