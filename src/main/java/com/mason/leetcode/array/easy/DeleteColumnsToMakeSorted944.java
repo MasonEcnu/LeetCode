@@ -40,31 +40,31 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class DeleteColumnsToMakeSorted944 {
 
-  public static void main(String[] args) {
-    String[] A = new String[]{"zyx", "wvu", "tsr"};
-    System.out.println(minDeletionSize(A));
-  }
-
-  private static int minDeletionSize(String[] A) {
-    int colSize = A[0].length();
-    AtomicInteger count = new AtomicInteger();
-    List<char[]> result = new ArrayList<>();
-    for (int c = 0; c < colSize; c++) {
-      StringBuilder sb = new StringBuilder();
-      for (String s : A) {
-        sb.append(s.charAt(c));
-      }
-      result.add(sb.toString().toCharArray());
+    public static void main(String[] args) {
+        String[] A = new String[]{"zyx", "wvu", "tsr"};
+        System.out.println(minDeletionSize(A));
     }
-    result.forEach(
-        cs -> {
-          char[] tempCs = cs.clone();
-          Arrays.sort(tempCs);
-          if (!Arrays.equals(tempCs, cs)) {
-            count.getAndIncrement();
-          }
+
+    private static int minDeletionSize(String[] A) {
+        int colSize = A[0].length();
+        AtomicInteger count = new AtomicInteger();
+        List<char[]> result = new ArrayList<>();
+        for (int c = 0; c < colSize; c++) {
+            StringBuilder sb = new StringBuilder();
+            for (String s : A) {
+                sb.append(s.charAt(c));
+            }
+            result.add(sb.toString().toCharArray());
         }
-    );
-    return count.get();
-  }
+        result.forEach(
+                cs -> {
+                    char[] tempCs = cs.clone();
+                    Arrays.sort(tempCs);
+                    if (!Arrays.equals(tempCs, cs)) {
+                        count.getAndIncrement();
+                    }
+                }
+        );
+        return count.get();
+    }
 }

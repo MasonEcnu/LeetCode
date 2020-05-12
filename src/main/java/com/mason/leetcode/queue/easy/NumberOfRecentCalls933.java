@@ -19,7 +19,7 @@ package com.mason.leetcode.queue.easy;
  */
 public class NumberOfRecentCalls933 {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-  }
+    }
 }

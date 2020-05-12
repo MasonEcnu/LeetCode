@@ -24,42 +24,42 @@ import java.util.Arrays;
  */
 public class SquaresOfSortedArray977 {
 
-  public static void main(String[] args) {
-    int[] A = new int[]{-4, -1, 0, 3, 10};
-    Arrays.stream(sortedSquares(A)).forEach(
-        System.out::println
-    );
-  }
-
-  private static int[] sortedSquares(int[] A) {
-    int[] result = A.clone();
-    if (A.length <= 0) return result;
-    int len = A.length;
-    int j = 0;
-    while (j < len && A[j] < 0) {
-      j++;
-    }
-    int i = j - 1;
-    int k = 0;
-    while (i >= 0 && j < len) {
-      if (A[i] * A[i] < A[j] * A[j]) {
-        result[k++] = A[i] * A[i];
-        i--;
-      } else {
-        result[k++] = A[j] * A[j];
-        j++;
-      }
+    public static void main(String[] args) {
+        int[] A = new int[]{-4, -1, 0, 3, 10};
+        Arrays.stream(sortedSquares(A)).forEach(
+                System.out::println
+        );
     }
 
-    while (i >= 0) {
-      result[k++] = A[i] * A[i];
-      i--;
-    }
+    private static int[] sortedSquares(int[] A) {
+        int[] result = A.clone();
+        if (A.length <= 0) return result;
+        int len = A.length;
+        int j = 0;
+        while (j < len && A[j] < 0) {
+            j++;
+        }
+        int i = j - 1;
+        int k = 0;
+        while (i >= 0 && j < len) {
+            if (A[i] * A[i] < A[j] * A[j]) {
+                result[k++] = A[i] * A[i];
+                i--;
+            } else {
+                result[k++] = A[j] * A[j];
+                j++;
+            }
+        }
 
-    while (j < len) {
-      result[k++] = A[j] * A[j];
-      j++;
+        while (i >= 0) {
+            result[k++] = A[i] * A[i];
+            i--;
+        }
+
+        while (j < len) {
+            result[k++] = A[j] * A[j];
+            j++;
+        }
+        return result;
     }
-    return result;
-  }
 }

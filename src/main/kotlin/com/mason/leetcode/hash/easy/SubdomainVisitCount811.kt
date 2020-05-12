@@ -40,33 +40,33 @@ import com.mason.leetcode.tools.printCollection
  */
 object SubdomainVisitCount811 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val cpdomains = arrayOf("900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org")
-    val result = subdomainVisits(cpdomains)
-    printCollection(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val cpdomains = arrayOf("900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org")
+        val result = subdomainVisits(cpdomains)
+        printCollection(result)
+    }
 
 
-  private fun subdomainVisits(cpdomains: Array<String>): List<String> {
-    if (cpdomains.isEmpty()) return emptyList()
-    val countMap = hashMapOf<String, Int>()
-    cpdomains.forEach {
-      val splitBySpace = it.split(" ")
-      val count = splitBySpace[0].toInt()
-      var splitByDot = splitBySpace[1]
-      var index = 0
-      while (index != -1) {
-        val num = countMap[splitByDot] ?: 0
-        countMap[splitByDot] = num + count
-        index = splitByDot.indexOfFirst { c -> c == '.' }
-        splitByDot = splitByDot.substring(index + 1)
-      }
+    private fun subdomainVisits(cpdomains: Array<String>): List<String> {
+        if (cpdomains.isEmpty()) return emptyList()
+        val countMap = hashMapOf<String, Int>()
+        cpdomains.forEach {
+            val splitBySpace = it.split(" ")
+            val count = splitBySpace[0].toInt()
+            var splitByDot = splitBySpace[1]
+            var index = 0
+            while (index != -1) {
+                val num = countMap[splitByDot] ?: 0
+                countMap[splitByDot] = num + count
+                index = splitByDot.indexOfFirst { c -> c == '.' }
+                splitByDot = splitByDot.substring(index + 1)
+            }
+        }
+        val result = ArrayList<String>(countMap.size)
+        countMap.entries.forEach {
+            result.add("${it.value} ${it.key}")
+        }
+        return result
     }
-    val result = ArrayList<String>(countMap.size)
-    countMap.entries.forEach {
-      result.add("${it.value} ${it.key}")
-    }
-    return result
-  }
 }

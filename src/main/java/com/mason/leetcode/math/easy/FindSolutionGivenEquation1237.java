@@ -44,25 +44,25 @@ import java.util.List;
 
 public class FindSolutionGivenEquation1237 {
 
-  public static void main(String[] args) {
-    CustomFunction customfunction = new CustomFunction();
-    System.out.println(JSON.toJSONString(findSolution(customfunction, 5)));
-  }
-
-  private static List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
-    List<List<Integer>> result = new ArrayList<>();
-    int x = 1, y = 1;
-    for (; x <= z && customfunction.f(x, y) <= z; x++) {
-      for (; y <= z && customfunction.f(x, y) <= z; y++) {
-        if (customfunction.f(x, y) == z) {
-          List<Integer> temp = new ArrayList<>();
-          temp.add(x);
-          temp.add(y);
-          result.add(temp);
-        }
-      }
-      y = 1;
+    public static void main(String[] args) {
+        CustomFunction customfunction = new CustomFunction();
+        System.out.println(JSON.toJSONString(findSolution(customfunction, 5)));
     }
-    return result;
-  }
+
+    private static List<List<Integer>> findSolution(CustomFunction customfunction, int z) {
+        List<List<Integer>> result = new ArrayList<>();
+        int x = 1, y = 1;
+        for (; x <= z && customfunction.f(x, y) <= z; x++) {
+            for (; y <= z && customfunction.f(x, y) <= z; y++) {
+                if (customfunction.f(x, y) == z) {
+                    List<Integer> temp = new ArrayList<>();
+                    temp.add(x);
+                    temp.add(y);
+                    result.add(temp);
+                }
+            }
+            y = 1;
+        }
+        return result;
+    }
 }

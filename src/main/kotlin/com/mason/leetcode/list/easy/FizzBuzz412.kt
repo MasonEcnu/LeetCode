@@ -32,24 +32,24 @@ import com.mason.leetcode.tools.printList
  */
 object FizzBuzz412 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val n = 15
-    val result = fizzBuzz(n)
-    printList(result)
-  }
-
-  private fun fizzBuzz(n: Int): List<String> {
-    if (n == 0) return emptyList()
-    val result = arrayListOf<String>()
-    (1..n).forEach {
-      when {
-        it % 15 == 0 -> result.add("FizzBuzz")
-        it % 3 == 0 -> result.add("Fizz")
-        it % 5 == 0 -> result.add("Buzz")
-        else -> result.add(it.toString())
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val n = 15
+        val result = fizzBuzz(n)
+        printList(result)
     }
-    return result
-  }
+
+    private fun fizzBuzz(n: Int): List<String> {
+        if (n == 0) return emptyList()
+        val result = arrayListOf<String>()
+        (1..n).forEach {
+            when {
+                it % 15 == 0 -> result.add("FizzBuzz")
+                it % 3 == 0 -> result.add("Fizz")
+                it % 5 == 0 -> result.add("Buzz")
+                else -> result.add(it.toString())
+            }
+        }
+        return result
+    }
 }

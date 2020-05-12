@@ -31,28 +31,33 @@ package com.mason.leetcode.string.easy
  */
 object GoatLatin824 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val S = "apple"
-    val result = toGoatLatin(S)
-    println(result)
-  }
-
-  private val vowels_set = setOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
-
-  private fun toGoatLatin(S: String): String {
-    val sb = StringBuilder()
-    S.split(" ").forEachIndexed { index, char ->
-      val times = index + 1
-      val add = "a".repeat(times)
-      if (vowels_set.contains(char.first())) {
-        sb.append(char).append("ma").append(add).append(" ")
-      } else {
-        val str = char + char.last()
-        sb.append(str.substring(1)).append("ma").append(add).append(" ")
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val S = "I speak Goat Latin"
+        val result = toGoatLatin(S)
+        println(result)
+        val temp = "Imaa peaksmaaa oatGmaaaa atinLmaaaaa"
+        println(result == temp)
     }
-    val result = sb.toString()
-    return result.substring(0, result.length - 1)
-  }
+
+    private val vowels_set = setOf('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+
+    private fun toGoatLatin(S: String): String {
+        val sb = StringBuilder()
+        val words = S.split(" ")
+        words.forEachIndexed { index, char ->
+            val add = "a".repeat(index + 1)
+            val first = char.first()
+            if (vowels_set.contains(first)) {
+                sb.append(char).append("ma").append(add)
+            } else {
+                val str = char + first
+                sb.append(str.substring(1)).append("ma").append(add)
+            }
+            if (index != words.lastIndex) {
+                sb.append(" ")
+            }
+        }
+        return sb.toString()
+    }
 }

@@ -20,20 +20,20 @@ package com.mason.leetcode.hash.easy
  */
 object JewelsStones771 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val j = "aA"
-    val s = "aAAbbbb"
-    val result = numJewelsInStones(j, s)
-    println(result)
-  }
-
-  private fun numJewelsInStones(J: String, S: String): Int {
-    var count = 0
-    if (J.isEmpty() || S.isEmpty()) return count
-    J.forEach { jc ->
-      count += S.count { jc == it }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val j = "aA"
+        val s = "aAAbbbb"
+        val result = numJewelsInStones(j, s)
+        println(result)
     }
-    return count
-  }
+
+    private fun numJewelsInStones(J: String, S: String): Int {
+        var count = 0
+        if (J.isEmpty() || S.isEmpty()) return count
+        J.forEach { jc ->
+            count += S.count { jc == it }
+        }
+        return count
+    }
 }

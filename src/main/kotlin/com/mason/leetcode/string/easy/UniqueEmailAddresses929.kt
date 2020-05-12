@@ -25,56 +25,60 @@ package com.mason.leetcode.string.easy
  */
 object UniqueEmailAddresses929 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val emails = arrayOf("test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com")
-    val result = numUniqueEmails(emails)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val emails = arrayOf(
+            "test.email+alex@leetcode.com",
+            "test.e.mail+bob.cathy@leetcode.com",
+            "testemail+david@lee.tcode.com"
+        )
+        val result = numUniqueEmails(emails)
+        println(result)
+    }
 
-  private fun numUniqueEmails(emails: Array<String>): Int {
-    val set = mutableSetOf<String>()
+    private fun numUniqueEmails(emails: Array<String>): Int {
+        val set = mutableSetOf<String>()
 //    emails.forEach {
 //      val email = genRealEmailAddress(it)
 //      set.add(email)
 //    }
-    emails.forEach {
-      val index = it.indexOf("@")
-      var local = it.substring(0, index)
-      val rest = it.substring(index)
-      if (local.contains("+")) {
-        local = local.substring(0, local.indexOf("+"))
-      }
-      local = local.replace(".", "")
-      set.add(local + rest)
+        emails.forEach {
+            val index = it.indexOf("@")
+            var local = it.substring(0, index)
+            val rest = it.substring(index)
+            if (local.contains("+")) {
+                local = local.substring(0, local.indexOf("+"))
+            }
+            local = local.replace(".", "")
+            set.add(local + rest)
+        }
+        return set.size
     }
-    return set.size
-  }
 
-  private fun genRealEmailAddress(address: String): String {
-    if (!address.contains("@")) return ""
-    val sb = StringBuilder()
-    val atArray = address.split("@")
-    val front = atArray[0]
-    val back = atArray[1]
-    if (front.contains("+")) {
-      val addArray = front.split("+")
-      if (addArray[0].contains(".")) {
-        addArray[0].split(".").forEach {
-          sb.append(it)
+    private fun genRealEmailAddress(address: String): String {
+        if (!address.contains("@")) return ""
+        val sb = StringBuilder()
+        val atArray = address.split("@")
+        val front = atArray[0]
+        val back = atArray[1]
+        if (front.contains("+")) {
+            val addArray = front.split("+")
+            if (addArray[0].contains(".")) {
+                addArray[0].split(".").forEach {
+                    sb.append(it)
+                }
+            } else {
+                sb.append(addArray[0])
+            }
+        } else {
+            if (front.contains(".")) {
+                front.split(".").forEach {
+                    sb.append(it)
+                }
+            } else {
+                sb.append(front)
+            }
         }
-      } else {
-        sb.append(addArray[0])
-      }
-    } else {
-      if (front.contains(".")) {
-        front.split(".").forEach {
-          sb.append(it)
-        }
-      } else {
-        sb.append(front)
-      }
+        return sb.append("@").append(back).toString()
     }
-    return sb.append("@").append(back).toString()
-  }
 }

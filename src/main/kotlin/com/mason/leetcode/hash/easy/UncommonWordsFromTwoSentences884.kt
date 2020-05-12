@@ -27,33 +27,33 @@ import com.mason.leetcode.tools.printArray
  */
 object UncommonWordsFromTwoSentences884 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = "apple"
-    val B = "banana banana"
-    val result = uncommonFromSentences(A, B)
-    printArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = "apple"
+        val B = "banana banana"
+        val result = uncommonFromSentences(A, B)
+        printArray(result)
+    }
 
-  private fun uncommonFromSentences(A: String, B: String): Array<String> {
-    if (A.isEmpty() && B.isEmpty()) return emptyArray()
-    val aarray = A.split(" ")
-    val barray = B.split(" ")
-    val countMap = hashMapOf<String, Int>()
-    (aarray + barray).forEach {
-      countMap[it] = if (countMap[it] == null) 1 else (countMap[it] ?: 1) + 1
+    private fun uncommonFromSentences(A: String, B: String): Array<String> {
+        if (A.isEmpty() && B.isEmpty()) return emptyArray()
+        val aarray = A.split(" ")
+        val barray = B.split(" ")
+        val countMap = hashMapOf<String, Int>()
+        (aarray + barray).forEach {
+            countMap[it] = if (countMap[it] == null) 1 else (countMap[it] ?: 1) + 1
+        }
+        val aset = aarray.toSet()
+        val bset = barray.toSet()
+        val result = mutableListOf<String>()
+        aset.forEach {
+            if (bset.contains(it) || countMap[it] != 1) return@forEach
+            result.add(it)
+        }
+        bset.forEach {
+            if (aset.contains(it) || countMap[it] != 1) return@forEach
+            result.add(it)
+        }
+        return result.toTypedArray()
     }
-    val aset = aarray.toSet()
-    val bset = barray.toSet()
-    val result = mutableListOf<String>()
-    aset.forEach {
-      if (bset.contains(it) || countMap[it] != 1) return@forEach
-      result.add(it)
-    }
-    bset.forEach {
-      if (aset.contains(it) || countMap[it] != 1) return@forEach
-      result.add(it)
-    }
-    return result.toTypedArray()
-  }
 }

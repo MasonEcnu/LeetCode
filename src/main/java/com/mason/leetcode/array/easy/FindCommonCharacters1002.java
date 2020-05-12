@@ -28,31 +28,31 @@ import static com.mason.leetcode.tools.PrintToolsKt.printList;
  */
 public class FindCommonCharacters1002 {
 
-  public static void main(String[] args) {
-    String[] A = new String[]{"bella", "label", "roller"};
-    printList(commonChars(A));
-  }
-
-  private static List<String> commonChars(String[] A) {
-    List<String> result = new ArrayList<>();
-    int[][] num = new int[100][26];
-    for (int i = 0; i < A.length; i++) {
-      for (int j = 0; j < A[i].length(); j++) {
-        num[i][A[i].charAt(j) - 'a']++;
-      }
+    public static void main(String[] args) {
+        String[] A = new String[]{"bella", "label", "roller"};
+        printList(commonChars(A));
     }
 
-    for (int j = 0; j < 26; j++) {
-      for (int i = 0; i < A.length; i++) {
-        num[0][j] = Math.min(num[0][j], num[i][j]);
-      }
-    }
+    private static List<String> commonChars(String[] A) {
+        List<String> result = new ArrayList<>();
+        int[][] num = new int[100][26];
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < A[i].length(); j++) {
+                num[i][A[i].charAt(j) - 'a']++;
+            }
+        }
 
-    for (int i = 0; i < 26; i++) {
-      while (num[0][i]-- > 0) {
-        result.add(String.valueOf((char) ('a' + i)));
-      }
+        for (int j = 0; j < 26; j++) {
+            for (int i = 0; i < A.length; i++) {
+                num[0][j] = Math.min(num[0][j], num[i][j]);
+            }
+        }
+
+        for (int i = 0; i < 26; i++) {
+            while (num[0][i]-- > 0) {
+                result.add(String.valueOf((char) ('a' + i)));
+            }
+        }
+        return result;
     }
-    return result;
-  }
 }

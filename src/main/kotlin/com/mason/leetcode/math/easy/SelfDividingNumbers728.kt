@@ -18,17 +18,17 @@ package com.mason.leetcode.math.easy
  */
 object SelfDividingNumbers728 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val left = 1
-    val right = 22
-    val result = selfDividingNumbers(left, right)
-    result.forEach {
-      print("$it ")
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val left = 1
+        val right = 22
+        val result = selfDividingNumbers(left, right)
+        result.forEach {
+            print("$it ")
+        }
     }
-  }
 
-  private fun selfDividingNumbers(left: Int, right: Int): List<Int> {
+    private fun selfDividingNumbers(left: Int, right: Int): List<Int> {
 //    if (left > right) return emptyList()
 //    val result = mutableListOf<Int>()
 //    (left..right).forEach outer@{ num ->
@@ -39,18 +39,18 @@ object SelfDividingNumbers728 {
 //    }
 //    return result
 
-    return (left..right).filter { isDivide(it) }.toList()
-  }
-
-  private fun isDivide(x: Int): Boolean {
-    var tx = x
-    val temp = tx
-    while (tx != 0) {
-      val rem = tx % 10
-      if (rem == 0 || temp % rem != 0)
-        return false
-      tx /= 10
+        return (left..right).filter { isDivide(it) }.toList()
     }
-    return true
-  }
+
+    private fun isDivide(x: Int): Boolean {
+        var tx = x
+        val temp = tx
+        while (tx != 0) {
+            val rem = tx % 10
+            if (rem == 0 || temp % rem != 0)
+                return false
+            tx /= 10
+        }
+        return true
+    }
 }

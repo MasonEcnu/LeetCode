@@ -29,20 +29,20 @@ import java.util.HashMap;
  */
 public class UniqueNumberOfOccurrences1207 {
 
-  public static void main(String[] args) {
-    int[] data = new int[]{1, 2, 2, 1, 1, 3};
-    System.out.println(uniqueOccurrences(data));
-  }
-
-  private static boolean uniqueOccurrences(int[] arr) {
-    if (arr.length == 0) return true;
-    HashMap<Integer, Integer> numToTimes = new HashMap<>();
-    for (int v : arr) {
-      int defaultValue = numToTimes.getOrDefault(v, 0) + 1;
-      numToTimes.put(v, defaultValue);
+    public static void main(String[] args) {
+        int[] data = new int[]{1, 2, 2, 1, 1, 3};
+        System.out.println(uniqueOccurrences(data));
     }
-    HashMap<Integer, Integer> timesToNum = new HashMap<>();
-    numToTimes.forEach((k, v) -> timesToNum.put(v, k));
-    return numToTimes.size() == timesToNum.size();
-  }
+
+    private static boolean uniqueOccurrences(int[] arr) {
+        if (arr.length == 0) return true;
+        HashMap<Integer, Integer> numToTimes = new HashMap<>();
+        for (int v : arr) {
+            int defaultValue = numToTimes.getOrDefault(v, 0) + 1;
+            numToTimes.put(v, defaultValue);
+        }
+        HashMap<Integer, Integer> timesToNum = new HashMap<>();
+        numToTimes.forEach((k, v) -> timesToNum.put(v, k));
+        return numToTimes.size() == timesToNum.size();
+    }
 }

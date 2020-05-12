@@ -13,35 +13,35 @@ package com.mason.leetcode.array.middle
  */
 object ThreeSumClosest {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(-1, 2, 1, -4)
-    val target = 1
-    println(threeSumClosest(nums, target))
-  }
-
-  private fun threeSumClosest(nums: IntArray, target: Int): Int {
-    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-  }
-
-  private fun slowestThreeSumClosest(nums: IntArray, target: Int): Int {
-    if (nums.size <= 3) return nums.sum()
-    val size = nums.size
-
-    var sum = 0
-    var diff = Int.MAX_VALUE
-    (0 until size).forEach { i ->
-      (i + 1 until size).forEach { j ->
-        (j + 1 until size).forEach { k ->
-          val temp = nums[i] + nums[j] + nums[k]
-          val tempDiff = Math.abs(temp - target)
-          if (tempDiff < diff) {
-            sum = temp
-            diff = tempDiff
-          }
-        }
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(-1, 2, 1, -4)
+        val target = 1
+        println(threeSumClosest(nums, target))
     }
-    return sum
-  }
+
+    private fun threeSumClosest(nums: IntArray, target: Int): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private fun slowestThreeSumClosest(nums: IntArray, target: Int): Int {
+        if (nums.size <= 3) return nums.sum()
+        val size = nums.size
+
+        var sum = 0
+        var diff = Int.MAX_VALUE
+        (0 until size).forEach { i ->
+            (i + 1 until size).forEach { j ->
+                (j + 1 until size).forEach { k ->
+                    val temp = nums[i] + nums[j] + nums[k]
+                    val tempDiff = Math.abs(temp - target)
+                    if (tempDiff < diff) {
+                        sum = temp
+                        diff = tempDiff
+                    }
+                }
+            }
+        }
+        return sum
+    }
 }

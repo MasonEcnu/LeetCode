@@ -23,19 +23,19 @@ package com.mason.leetcode.string.easy
  */
 object LongestUncommonSubsequenceI521 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val a = ""
-    val b = ""
-    val result = findLUSlength(a, b)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val a = ""
+        val b = ""
+        val result = findLUSlength(a, b)
+        println(result)
+    }
 
-  /**
-   * As long as you realize you can always choose the longer string as the "Subsequence",
-   * and surely it cannot be the subsequence of the shorter one, the problem becomes a piece of cake.
-   */
-  private fun findLUSlength(a: String, b: String): Int {
-    return if (a == b) -1 else Math.max(a.length, b.length)
-  }
+    /**
+     * As long as you realize you can always choose the longer string as the "Subsequence",
+     * and surely it cannot be the subsequence of the shorter one, the problem becomes a piece of cake.
+     */
+    private fun findLUSlength(a: String, b: String): Int {
+        return if (a == b) -1 else Math.max(a.length, b.length)
+    }
 }

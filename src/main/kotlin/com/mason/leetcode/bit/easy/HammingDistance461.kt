@@ -18,25 +18,25 @@ package com.mason.leetcode.bit.easy
  */
 object HammingDistance461 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val x = 1
-    val y = 4
-    val result = hammingDistance(x, y)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val x = 1
+        val y = 4
+        val result = hammingDistance(x, y)
+        println(result)
+    }
 
-  private fun hammingDistance(x: Int, y: Int): Int {
-    // 异或
+    private fun hammingDistance(x: Int, y: Int): Int {
+        // 异或
 //    return Integer.bitCount(x xor y)
 
-    // 位运算+计数
-    var n = x xor y
-    var count = 0
-    while (n != 0) {
-      n = n and n - 1
-      count++
+        // 位运算+计数
+        var n = x xor y
+        var count = 0
+        while (n != 0) {
+            n = n and n - 1
+            count++
+        }
+        return count
     }
-    return count
-  }
 }

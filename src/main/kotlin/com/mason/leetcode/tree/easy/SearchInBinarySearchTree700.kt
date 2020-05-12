@@ -1,6 +1,7 @@
 package com.mason.leetcode.tree.easy
 
 import com.mason.leetcode.struct.TreeNode
+
 /**
  * Created by mwu on 2018/10/29
  * Given the root node of a binary search tree (BST) and a value.
@@ -13,20 +14,20 @@ import com.mason.leetcode.struct.TreeNode
  */
 object SearchInBinarySearchTree700 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val root = TreeNode(4)
-    root.left = TreeNode(2)
-    root.right = TreeNode(7)
-    root.left?.left = TreeNode(1)
-    root.left?.right = TreeNode(3)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val root = TreeNode(4)
+        root.left = TreeNode(2)
+        root.right = TreeNode(7)
+        root.left?.left = TreeNode(1)
+        root.left?.right = TreeNode(3)
 
-    val result = searchBST(root, 5)
-    println(result?.`val`)
-  }
+        val result = searchBST(root, 5)
+        println(result?.`val`)
+    }
 
-  private fun searchBST(root: TreeNode?, `val`: Int): TreeNode? {
-    // 递归
+    private fun searchBST(root: TreeNode?, `val`: Int): TreeNode? {
+        // 递归
 //    if (root == null) return null
 //    return when {
 //      `val` == root.`val` -> root
@@ -35,15 +36,15 @@ object SearchInBinarySearchTree700 {
 //      else -> null
 //    }
 
-    // 非递归
-    var result = root
-    while (result != null) {
-      result = when {
-        result.`val` == `val` -> return result
-        result.`val` > `val` -> result.left
-        else -> result.right
-      }
+        // 非递归
+        var result = root
+        while (result != null) {
+            result = when {
+                result.`val` == `val` -> return result
+                result.`val` > `val` -> result.left
+                else -> result.right
+            }
+        }
+        return result
     }
-    return result
-  }
 }

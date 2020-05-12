@@ -21,14 +21,14 @@ package com.mason.leetcode.bit.easy
  */
 object NumberComplement467 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val num = 1
-    val result = findComplement(num)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val num = 1
+        val result = findComplement(num)
+        println(result)
+    }
 
-  private fun findComplement(num: Int): Int {
+    private fun findComplement(num: Int): Int {
 //    val sb = StringBuilder()
 //    num.toString(2).forEach {
 //      sb.append(if (it == '0') 1 else 0)
@@ -37,13 +37,13 @@ object NumberComplement467 {
 //    val index = str.indexOfFirst { it == '1' }
 //    return if (index == -1) 0 else str.substring(index).toInt(2)
 
-    // 异或
-    val range = num.toString(2).length
-    val temp = StringBuilder().apply {
-      (0 until range).forEach { _ ->
-        append(1)
-      }
-    }.toString().toInt(2)
-    return num xor temp
-  }
+        // 异或
+        val range = num.toString(2).length
+        val temp = StringBuilder().apply {
+            (0 until range).forEach { _ ->
+                append(1)
+            }
+        }.toString().toInt(2)
+        return num xor temp
+    }
 }

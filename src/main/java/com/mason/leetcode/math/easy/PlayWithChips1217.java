@@ -28,17 +28,17 @@ package com.mason.leetcode.math.easy;
  */
 public class PlayWithChips1217 {
 
-  public static void main(String[] args) {
-    int[] chips = new int[]{1, 2, 3};
-    System.out.println(minCostToMoveChips(chips));
-  }
-
-  private static int minCostToMoveChips(int[] chips) {
-    int even = 0, odd = 0;
-    for (int chip : chips) {
-      if ((chip & 1) == 0) even++;
-      else odd++;
+    public static void main(String[] args) {
+        int[] chips = new int[]{1, 2, 3};
+        System.out.println(minCostToMoveChips(chips));
     }
-    return Math.min(even, odd);
-  }
+
+    private static int minCostToMoveChips(int[] chips) {
+        int even = 0, odd = 0;
+        for (int chip : chips) {
+            if ((chip & 1) == 0) even++;
+            else odd++;
+        }
+        return Math.min(even, odd);
+    }
 }

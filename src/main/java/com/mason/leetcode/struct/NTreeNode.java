@@ -7,14 +7,14 @@ import java.util.List;
  * N叉树节点
  */
 public class NTreeNode {
-  public int val;
-  public List<NTreeNode> children;
+    public int val;
+    public List<NTreeNode> children;
 
-  public NTreeNode() {
-  }
+    public NTreeNode() {
+    }
 
-  public NTreeNode(int _val, List<NTreeNode> _children) {
-    val = _val;
-    children = _children;
-  }
+    public NTreeNode(int _val, List<NTreeNode> _children) {
+        val = _val;
+        children = _children;
+    }
 }

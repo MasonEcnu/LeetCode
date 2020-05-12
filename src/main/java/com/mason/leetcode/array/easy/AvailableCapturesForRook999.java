@@ -12,76 +12,76 @@ package com.mason.leetcode.array.easy;
  */
 public class AvailableCapturesForRook999 {
 
-  public static void main(String[] args) {
-    char[][] board = {
-        new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
-        new char[]{'.', '.', '.', 'p', '.', '.', '.', '.'},
-        new char[]{'.', 'p', 'B', 'R', '.', '.', '.', 'p'},
-        new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
-        new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
-        new char[]{'.', '.', '.', 'p', '.', '.', '.', '.'},
-        new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
-        new char[]{'.', '.', '.', '.', '.', '.', '.', '.'}
-    };
-    System.out.println(numRookCaptures(board));
-  }
+    public static void main(String[] args) {
+        char[][] board = {
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', 'p', '.', '.', '.', '.'},
+                new char[]{'.', 'p', 'B', 'R', '.', '.', '.', 'p'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', 'p', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.'},
+                new char[]{'.', '.', '.', '.', '.', '.', '.', '.'}
+        };
+        System.out.println(numRookCaptures(board));
+    }
 
-  private static int numRookCaptures(char[][] board) {
-    int i = 0, j = 0;
-    outer:
-    for (; i < board.length; i++) {
-      for (; j < board[i].length; j++) {
-        if (board[i][j] == 'R') {
-          break outer;
+    private static int numRookCaptures(char[][] board) {
+        int i = 0, j = 0;
+        outer:
+        for (; i < board.length; i++) {
+            for (; j < board[i].length; j++) {
+                if (board[i][j] == 'R') {
+                    break outer;
+                }
+            }
+            j = 0;
         }
-      }
-      j = 0;
+        int count = 0;
+        // 遍历行
+        int left = j, right = j;
+        while (left >= 0) {
+            if (board[i][left] == 'B') {
+                break;
+            }
+            if (board[i][left] == 'p') {
+                count++;
+                break;
+            }
+            left--;
+        }
+        while (right < board[i].length) {
+            if (board[i][right] == 'B') {
+                break;
+            }
+            if (board[i][right] == 'p') {
+                count++;
+                break;
+            }
+            right++;
+        }
+        // 遍历列
+        int up = i, down = i;
+        while (up >= 0) {
+            if (board[up][j] == 'B') {
+                break;
+            }
+            if (board[up][j] == 'p') {
+                count++;
+                break;
+            }
+            up--;
+        }
+        while (down < board.length) {
+            if (board[down][j] == 'B') {
+                break;
+            }
+            if (board[down][j] == 'p') {
+                count++;
+                break;
+            }
+            down++;
+        }
+        return count;
     }
-    int count = 0;
-    // 遍历行
-    int left = j, right = j;
-    while (left >= 0) {
-      if (board[i][left] == 'B') {
-        break;
-      }
-      if (board[i][left] == 'p') {
-        count++;
-        break;
-      }
-      left--;
-    }
-    while (right < board[i].length) {
-      if (board[i][right] == 'B') {
-        break;
-      }
-      if (board[i][right] == 'p') {
-        count++;
-        break;
-      }
-      right++;
-    }
-    // 遍历列
-    int up = i, down = i;
-    while (up >= 0) {
-      if (board[up][j] == 'B') {
-        break;
-      }
-      if (board[up][j] == 'p') {
-        count++;
-        break;
-      }
-      up--;
-    }
-    while (down < board.length) {
-      if (board[down][j] == 'B') {
-        break;
-      }
-      if (board[down][j] == 'p') {
-        count++;
-        break;
-      }
-      down++;
-    }
-    return count;
-  }
 }

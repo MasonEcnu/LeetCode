@@ -28,19 +28,19 @@ package com.mason.leetcode.string.easy;
  */
 public class SplitStringInBalancedStrings1121 {
 
-  public static void main(String[] args) {
-    String s = "LLLLRRRR";
-    System.out.println(balancedStringSplit(s));
-  }
-
-  private static int balancedStringSplit(String s) {
-    if (s.length() <= 0) return 0;
-    int count = 0;
-    int result = 0;
-    for (char c : s.toCharArray()) {
-      count += c == 'R' ? 1 : -1;
-      if (count == 0) result++;
+    public static void main(String[] args) {
+        String s = "LLLLRRRR";
+        System.out.println(balancedStringSplit(s));
     }
-    return result;
-  }
+
+    private static int balancedStringSplit(String s) {
+        if (s.length() <= 0) return 0;
+        int count = 0;
+        int result = 0;
+        for (char c : s.toCharArray()) {
+            count += c == 'R' ? 1 : -1;
+            if (count == 0) result++;
+        }
+        return result;
+    }
 }

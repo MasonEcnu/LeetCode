@@ -30,19 +30,19 @@ package com.mason.leetcode.array.easy;
  */
 public class TeemoAttacking495 {
 
-  public static void main(String[] args) {
-    int[] timeSeries = new int[]{1, 4};
-    int duration = 2;
-    System.out.println(findPoisonedDuration(timeSeries, duration));
-  }
-
-  private static int findPoisonedDuration(int[] timeSeries, int duration) {
-    int len = timeSeries.length;
-    if (len <= 0) return 0;
-    int total = 0;
-    for (int i = 0; i < len - 1; i++) {
-      total += Math.min(timeSeries[i + 1] - timeSeries[i], duration);
+    public static void main(String[] args) {
+        int[] timeSeries = new int[]{1, 4};
+        int duration = 2;
+        System.out.println(findPoisonedDuration(timeSeries, duration));
     }
-    return total + duration;
-  }
+
+    private static int findPoisonedDuration(int[] timeSeries, int duration) {
+        int len = timeSeries.length;
+        if (len <= 0) return 0;
+        int total = 0;
+        for (int i = 0; i < len - 1; i++) {
+            total += Math.min(timeSeries[i + 1] - timeSeries[i], duration);
+        }
+        return total + duration;
+    }
 }

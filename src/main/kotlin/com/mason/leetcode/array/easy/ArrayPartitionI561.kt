@@ -15,15 +15,15 @@ package com.mason.leetcode.array.easy
  */
 object ArrayPartitionI561 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(1, 4, -3, 2)
-    val result = arrayPairSum(nums)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(1, 4, -3, 2)
+        val result = arrayPairSum(nums)
+        println(result)
+    }
 
-  private fun arrayPairSum(nums: IntArray): Int {
-    nums.sort()
-    return (0 until nums.size step 2).sumBy { nums[it] }
-  }
+    private fun arrayPairSum(nums: IntArray): Int {
+        nums.sort()
+        return (0 until nums.size step 2).sumBy { nums[it] }
+    }
 }

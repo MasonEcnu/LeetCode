@@ -11,18 +11,18 @@ package com.mason.leetcode.string.easy
  */
 object ReverseWordsInStringIII557 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val s = "Let's take LeetCode contest"
-    val result = reverseWords(s)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val s = "Let's take LeetCode contest"
+        val result = reverseWords(s)
+        println(result)
+    }
 
-  private fun reverseWords(s: String): String {
-    return StringBuilder().apply {
-      s.split(" ").forEach {
-        append("${it.reversed()} ")
-      }
-    }.toString().trim()
-  }
+    private fun reverseWords(s: String): String {
+        return StringBuilder().apply {
+            s.split(" ").forEach {
+                append("${it.reversed()} ")
+            }
+        }.toString().trim()
+    }
 }

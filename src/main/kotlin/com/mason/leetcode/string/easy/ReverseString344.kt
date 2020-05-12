@@ -14,21 +14,21 @@ package com.mason.leetcode.string.easy
  */
 object ReverseString344 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val str = "A man, a plan, a canal: Panama"
-    val result = reverseString(str)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val str = "A man, a plan, a canal: Panama"
+        val result = reverseString(str)
+        println(result)
+    }
 
-  private fun reverseString(s: String): String {
-    return StringBuilder().apply {
-      val len = s.length
-      s.indices.forEach {
-        append(s[len - it - 1])
-      }
-    }.toString()
+    private fun reverseString(s: String): String {
+        return StringBuilder().apply {
+            val len = s.length
+            s.indices.forEach {
+                append(s[len - it - 1])
+            }
+        }.toString()
 
 //    return s.reversed()
-  }
+    }
 }

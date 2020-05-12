@@ -33,19 +33,19 @@ package com.mason.leetcode.array.easy;
  */
 public class GuessNumbers1 {
 
-  public static void main(String[] args) {
-    System.out.println(
-        game(new int[]{1, 2, 3}, new int[]{1, 2, 3})
-    );
-  }
-
-  private static int game(int[] guess, int[] answer) {
-    int count = 0;
-    for (int i = 0; i < answer.length; i++) {
-      if (guess[i] == answer[i]) {
-        count++;
-      }
+    public static void main(String[] args) {
+        System.out.println(
+                game(new int[]{1, 2, 3}, new int[]{1, 2, 3})
+        );
     }
-    return count;
-  }
+
+    private static int game(int[] guess, int[] answer) {
+        int count = 0;
+        for (int i = 0; i < answer.length; i++) {
+            if (guess[i] == answer[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

@@ -26,26 +26,26 @@ package com.mason.leetcode.array.easy
  */
 object FlippingAnImage832 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = arrayOf(intArrayOf(1, 1, 0), intArrayOf(1, 0, 1), intArrayOf(0, 0, 0))
-    val result = flipAndInvertImage(A)
-    result.forEach { outer ->
-      outer.forEach { inner ->
-        print("$inner ")
-      }
-      println()
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = arrayOf(intArrayOf(1, 1, 0), intArrayOf(1, 0, 1), intArrayOf(0, 0, 0))
+        val result = flipAndInvertImage(A)
+        result.forEach { outer ->
+            outer.forEach { inner ->
+                print("$inner ")
+            }
+            println()
+        }
     }
-  }
 
-  private fun flipAndInvertImage(A: Array<IntArray>): Array<IntArray> {
-    if (A.isEmpty()) return emptyArray()
-    A.forEach { outer ->
-      outer.reverse()
-      outer.forEachIndexed { index, value ->
-        outer[index] = if (value == 1) 0 else 1
-      }
+    private fun flipAndInvertImage(A: Array<IntArray>): Array<IntArray> {
+        if (A.isEmpty()) return emptyArray()
+        A.forEach { outer ->
+            outer.reverse()
+            outer.forEachIndexed { index, value ->
+                outer[index] = if (value == 1) 0 else 1
+            }
+        }
+        return A
     }
-    return A
-  }
 }

@@ -5,7 +5,7 @@ package com.mason.leetcode.math.easy;
  */
 class CustomFunction {
 
-  int f(int x, int y) {
-    return x + y;
-  }
+    int f(int x, int y) {
+        return x + y;
+    }
 }

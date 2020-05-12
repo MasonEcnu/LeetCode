@@ -24,15 +24,15 @@ import com.mason.leetcode.tools.printList
  */
 object LetterCasePermutation784 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val S = ""
-    val result = letterCasePermutation(S)
-    printList(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val S = ""
+        val result = letterCasePermutation(S)
+        printList(result)
+    }
 
-  // todo 暂时不会
-  private fun letterCasePermutation(S: String): List<String> {
-    return emptyList()
-  }
+    // todo 暂时不会
+    private fun letterCasePermutation(S: String): List<String> {
+        return emptyList()
+    }
 }

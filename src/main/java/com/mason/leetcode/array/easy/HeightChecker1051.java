@@ -21,34 +21,34 @@ import java.util.Arrays;
  */
 public class HeightChecker1051 {
 
-  public static void main(String[] args) {
-    int[] heights = new int[]{1, 1, 4, 2, 1, 3};
-    System.out.println(heightChecker(heights));
-  }
+    public static void main(String[] args) {
+        int[] heights = new int[]{1, 1, 4, 2, 1, 3};
+        System.out.println(heightChecker(heights));
+    }
 
-  private static int oldHeightChecker(int[] heights) {
-    int[] temp = heights.clone();
-    Arrays.sort(heights);
-    int count = 0;
-    for (int i = 0; i < temp.length; i++) {
-      if (temp[i] != heights[i]) {
-        count++;
-      }
+    private static int oldHeightChecker(int[] heights) {
+        int[] temp = heights.clone();
+        Arrays.sort(heights);
+        int count = 0;
+        for (int i = 0; i < temp.length; i++) {
+            if (temp[i] != heights[i]) {
+                count++;
+            }
+        }
+        return count;
     }
-    return count;
-  }
 
-  private static int heightChecker(int[] heights) {
-    int[] array = new int[101];
-    for (int height : heights) {
-      array[height]++;
+    private static int heightChecker(int[] heights) {
+        int[] array = new int[101];
+        for (int height : heights) {
+            array[height]++;
+        }
+        int count = 0;
+        for (int i = 0, j = 0; i < array.length; i++) {
+            while (array[i]-- > 0) {
+                if (heights[j++] != i) count++;
+            }
+        }
+        return count;
     }
-    int count = 0;
-    for (int i = 0, j = 0; i < array.length; i++) {
-      while (array[i]-- > 0) {
-        if (heights[j++] != i) count++;
-      }
-    }
-    return count;
-  }
 }

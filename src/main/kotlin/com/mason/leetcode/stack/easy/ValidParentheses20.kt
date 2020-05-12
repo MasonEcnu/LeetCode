@@ -34,15 +34,15 @@ import java.util.*
  */
 object ValidParentheses20 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val s = "]]"
-    val result = isValid(s)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val s = "]]"
+        val result = isValid(s)
+        println(result)
+    }
 
-  private fun isValid(s: String): Boolean {
-    // 暴力法
+    private fun isValid(s: String): Boolean {
+        // 暴力法
 //    val stack = Stack<Char>()
 //    var temp: Char
 //    s.toCharArray().forEach {
@@ -74,23 +74,23 @@ object ValidParentheses20 {
 //    }
 //    return stack.isEmpty()
 
-    // 高端法
-    val bracketMap = mapOf(
-        ')' to '(',
-        ']' to '[',
-        '}' to '{'
-    )
-    val stack = Stack<Char>()
-    s.toCharArray().forEach {
-      if (bracketMap.containsKey(it)) {
-        if (stack.isEmpty()) return false
-        if (bracketMap[it] != stack.pop()) {
-          return false
+        // 高端法
+        val bracketMap = mapOf(
+            ')' to '(',
+            ']' to '[',
+            '}' to '{'
+        )
+        val stack = Stack<Char>()
+        s.toCharArray().forEach {
+            if (bracketMap.containsKey(it)) {
+                if (stack.isEmpty()) return false
+                if (bracketMap[it] != stack.pop()) {
+                    return false
+                }
+            } else {
+                stack.push(it)
+            }
         }
-      } else {
-        stack.push(it)
-      }
+        return stack.isEmpty()
     }
-    return stack.isEmpty()
-  }
 }

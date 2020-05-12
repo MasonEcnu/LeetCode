@@ -26,13 +26,13 @@ package com.mason.leetcode.math.easy;
  */
 public class DivisorGame1025 {
 
-  public static void main(String[] args) {
-    System.out.println(divisorGame(101));
-  }
+    public static void main(String[] args) {
+        System.out.println(divisorGame(101));
+    }
 
-  private static boolean divisorGame(int N) {
-    int aa = N & 2;
-    System.out.println(aa);
-    return aa == 0;
-  }
+    private static boolean divisorGame(int N) {
+        int aa = N & 2;
+        System.out.println(aa);
+        return aa == 0;
+    }
 }

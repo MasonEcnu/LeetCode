@@ -20,14 +20,14 @@ import com.mason.leetcode.tools.printIntArray
  */
 object SortArrayByParityII922 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = intArrayOf(3, 4)
-    val result = sortArrayByParityII(A)
-    printIntArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = intArrayOf(3, 4)
+        val result = sortArrayByParityII(A)
+        printIntArray(result)
+    }
 
-  private fun sortArrayByParityII(A: IntArray): IntArray {
+    private fun sortArrayByParityII(A: IntArray): IntArray {
 //    if (A.isEmpty()) return intArrayOf()
 //    val odd = A.filter { it % 2 == 1 }
 //    val even = A.filter { it % 2 == 0 }
@@ -36,21 +36,21 @@ object SortArrayByParityII922 {
 //    }
 //    return A
 
-    var j = 1
-    var i = 0
-    while (i < A.size) {
-      if (A[i] % 2 == 1) {
-        while (A[j] % 2 == 1)
-          j += 2
+        var j = 1
+        var i = 0
+        while (i < A.size) {
+            if (A[i] % 2 == 1) {
+                while (A[j] % 2 == 1)
+                    j += 2
 
-        // 保证交换后的i位置的值，满足条件
-        // Swap A[i] and A[j]
-        val tmp = A[i]
-        A[i] = A[j]
-        A[j] = tmp
-      }
-      i += 2
+                // 保证交换后的i位置的值，满足条件
+                // Swap A[i] and A[j]
+                val tmp = A[i]
+                A[i] = A[j]
+                A[j] = tmp
+            }
+            i += 2
+        }
+        return A
     }
-    return A
-  }
 }

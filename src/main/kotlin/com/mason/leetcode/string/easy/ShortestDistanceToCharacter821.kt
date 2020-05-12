@@ -17,29 +17,29 @@ import com.mason.leetcode.tools.printIntArray
  */
 object ShortestDistanceToCharacter821 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val S = "loveleetcode"
-    val C = 'e'
-    val result = shortestToChar(S, C)
-    printIntArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val S = "loveleetcode"
+        val C = 'e'
+        val result = shortestToChar(S, C)
+        printIntArray(result)
+    }
 
-  private fun shortestToChar(S: String, C: Char): IntArray {
-    val cindex = mutableListOf<Int>()
-    S.forEachIndexed { index, c ->
-      if (c == C) cindex.add(index)
-    }
-    val result = IntArray(size = S.length, init = { Int.MAX_VALUE })
-    S.forEachIndexed { index, c ->
-      if (c == C) {
-        result[index] = 0
-      } else {
-        cindex.forEach {
-          result[index] = Math.min(result[index], Math.abs(index - it))
+    private fun shortestToChar(S: String, C: Char): IntArray {
+        val cindex = mutableListOf<Int>()
+        S.forEachIndexed { index, c ->
+            if (c == C) cindex.add(index)
         }
-      }
+        val result = IntArray(size = S.length, init = { Int.MAX_VALUE })
+        S.forEachIndexed { index, c ->
+            if (c == C) {
+                result[index] = 0
+            } else {
+                cindex.forEach {
+                    result[index] = Math.min(result[index], Math.abs(index - it))
+                }
+            }
+        }
+        return result
     }
-    return result
-  }
 }

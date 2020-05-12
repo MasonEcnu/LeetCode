@@ -14,21 +14,21 @@ import com.mason.leetcode.tools.printLinkedList
  */
 object MergeTwoSortedLists21 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val l1 = ListNode(1)
-    l1.next = ListNode(2)
-    l1.next?.next = ListNode(3)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val l1 = ListNode(1)
+        l1.next = ListNode(2)
+        l1.next?.next = ListNode(3)
 
-    val l2 = ListNode(1)
-    l2.next = ListNode(3)
-    l2.next?.next = ListNode(4)
+        val l2 = ListNode(1)
+        l2.next = ListNode(3)
+        l2.next?.next = ListNode(4)
 
-    val result = mergeTwoLists(l1, l2)
-    printLinkedList(result)
-  }
+        val result = mergeTwoLists(l1, l2)
+        printLinkedList(result)
+    }
 
-  private fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
+    private fun mergeTwoLists(l1: ListNode?, l2: ListNode?): ListNode? {
 //    var tl1 = l1
 //    var tl2 = l2
 //    var head: ListNode? = ListNode(0)
@@ -50,16 +50,16 @@ object MergeTwoSortedLists21 {
 //    }
 //    return merge?.next
 
-    // 递归
-    if (l1 == null) return l2
-    if (l2 == null) return l1
+        // 递归
+        if (l1 == null) return l2
+        if (l2 == null) return l1
 
-    return if (l1.`val` < l2.`val`) {
-      l1.next = mergeTwoLists(l1.next, l2)
-      l1
-    } else {
-      l2.next = mergeTwoLists(l2.next, l1)
-      l2
+        return if (l1.`val` < l2.`val`) {
+            l1.next = mergeTwoLists(l1.next, l2)
+            l1
+        } else {
+            l2.next = mergeTwoLists(l2.next, l1)
+            l2
+        }
     }
-  }
 }

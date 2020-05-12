@@ -1,6 +1,5 @@
 package com.mason.leetcode.array.easy
 
-import com.mason.leetcode.tools.printIntArray
 import com.mason.leetcode.tools.printList
 
 /**
@@ -33,24 +32,24 @@ import com.mason.leetcode.tools.printList
  */
 object RemoveDuplicatesFromSortedArray {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(1, 1, 2)
-    val result = removeDuplicates(nums)
-    // IntRange：是一个闭区间
-    printList(nums.slice(IntRange(0, result)))
-  }
-
-  private fun removeDuplicates(nums: IntArray): Int {
-    val size = nums.size
-    if (size <= 1) return size
-    var slow = 0
-    (1 until size).forEach { index ->
-      if (nums[slow] != nums[index]) {
-        slow++
-        nums[slow] = nums[index]
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(1, 1, 2)
+        val result = removeDuplicates(nums)
+        // IntRange：是一个闭区间
+        printList(nums.slice(IntRange(0, result)))
     }
-    return slow
-  }
+
+    private fun removeDuplicates(nums: IntArray): Int {
+        val size = nums.size
+        if (size <= 1) return size
+        var slow = 0
+        (1 until size).forEach { index ->
+            if (nums[slow] != nums[index]) {
+                slow++
+                nums[slow] = nums[index]
+            }
+        }
+        return slow
+    }
 }

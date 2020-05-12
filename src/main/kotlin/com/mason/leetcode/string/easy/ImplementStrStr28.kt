@@ -23,27 +23,27 @@ package com.mason.leetcode.string.easy
  */
 object ImplementStrStr28 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val haystack = "mississippi"
-    val needle = "issip"
-    val result = strStr(haystack, needle)
-    println(result)
-  }
-
-  // 有思路居然都做不对。。服了自己了
-  private fun strStr(haystack: String, needle: String): Int {
-    var i = 0
-    while (true) {
-      var j = 0
-      while (true) {
-        if (j == needle.length) return i
-        if (i + j == haystack.length) return -1
-        // i + j: 这里的比较是关键
-        if (needle[j] != haystack[i + j]) break
-        j++
-      }
-      i++
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val haystack = "mississippi"
+        val needle = "issip"
+        val result = strStr(haystack, needle)
+        println(result)
     }
-  }
+
+    // 有思路居然都做不对。。服了自己了
+    private fun strStr(haystack: String, needle: String): Int {
+        var i = 0
+        while (true) {
+            var j = 0
+            while (true) {
+                if (j == needle.length) return i
+                if (i + j == haystack.length) return -1
+                // i + j: 这里的比较是关键
+                if (needle[j] != haystack[i + j]) break
+                j++
+            }
+            i++
+        }
+    }
 }

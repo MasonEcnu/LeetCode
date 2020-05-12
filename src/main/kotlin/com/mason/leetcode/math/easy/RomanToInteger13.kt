@@ -50,34 +50,34 @@ package com.mason.leetcode.math.easy
  */
 object RomanToInteger13 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val s = "MCMXCIV"
-    val result = romanToInt(s)
-    println(result)
-  }
-
-  private val ROMAN_MAP: HashMap<Char, Int> = hashMapOf(
-      'Z' to 0,
-      'I' to 1,
-      'V' to 5,
-      'X' to 10,
-      'L' to 50,
-      'C' to 100,
-      'D' to 500,
-      'M' to 1000
-  )
-
-  private fun romanToInt(s: String): Int {
-    val str = s + "Z"
-    val strs = str.toCharArray()
-    val size = strs.size
-    var sum = 0
-    (size downTo 2).forEach { index ->
-      val curr = ROMAN_MAP[strs[index - 1]] ?: 0
-      val pre = ROMAN_MAP[strs[index - 2]] ?: 0
-      sum += if (curr <= pre) pre else -pre
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val s = "MCMXCIV"
+        val result = romanToInt(s)
+        println(result)
     }
-    return sum
-  }
+
+    private val ROMAN_MAP: HashMap<Char, Int> = hashMapOf(
+        'Z' to 0,
+        'I' to 1,
+        'V' to 5,
+        'X' to 10,
+        'L' to 50,
+        'C' to 100,
+        'D' to 500,
+        'M' to 1000
+    )
+
+    private fun romanToInt(s: String): Int {
+        val str = s + "Z"
+        val strs = str.toCharArray()
+        val size = strs.size
+        var sum = 0
+        (size downTo 2).forEach { index ->
+            val curr = ROMAN_MAP[strs[index - 1]] ?: 0
+            val pre = ROMAN_MAP[strs[index - 2]] ?: 0
+            sum += if (curr <= pre) pre else -pre
+        }
+        return sum
+    }
 }

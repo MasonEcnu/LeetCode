@@ -1,7 +1,5 @@
 package com.mason.leetcode.string.easy
 
-import java.lang.StringBuilder
-
 /**
  * Created by mwu on 2018/10/25
  * International Morse Code defines a standard encoding where each letter is mapped to a series of dots and dashes, as follows: "a" maps to ".-", "b" maps to "-...", "c" maps to "-.-.", and so on.
@@ -28,35 +26,63 @@ import java.lang.StringBuilder
  */
 object UniqueMorseCodeWords804 {
 
-  private val dots_array = arrayOf(".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..")
+    private val dots_array = arrayOf(
+        ".-",
+        "-...",
+        "-.-.",
+        "-..",
+        ".",
+        "..-.",
+        "--.",
+        "....",
+        "..",
+        ".---",
+        "-.-",
+        ".-..",
+        "--",
+        "-.",
+        "---",
+        ".--.",
+        "--.-",
+        ".-.",
+        "...",
+        "-",
+        "..-",
+        "...-",
+        ".--",
+        "-..-",
+        "-.--",
+        "--.."
+    )
 
-  private val dots_map = mapOf(
-      'a' to ".-", 'b' to "-...", 'c' to "-.-.", 'd' to "-..",
-      'e' to ".", 'f' to "..-.", 'g' to "--.", 'h' to "....",
-      'i' to "..", 'j' to ".---", 'k' to "-.-", 'l' to ".-..",
-      'm' to "--", 'n' to "-.", 'o' to "---", 'p' to ".--.",
-      'q' to "--.-", 'r' to ".-.", 's' to "...", 't' to "-",
-      'u' to "..-", 'v' to "...-", 'w' to ".--", 'x' to "-..-",
-      'y' to "-.--", 'z' to "--..")
+    private val dots_map = mapOf(
+        'a' to ".-", 'b' to "-...", 'c' to "-.-.", 'd' to "-..",
+        'e' to ".", 'f' to "..-.", 'g' to "--.", 'h' to "....",
+        'i' to "..", 'j' to ".---", 'k' to "-.-", 'l' to ".-..",
+        'm' to "--", 'n' to "-.", 'o' to "---", 'p' to ".--.",
+        'q' to "--.-", 'r' to ".-.", 's' to "...", 't' to "-",
+        'u' to "..-", 'v' to "...-", 'w' to ".--", 'x' to "-..-",
+        'y' to "-.--", 'z' to "--.."
+    )
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val words = arrayOf("gin", "zen", "gig", "msg")
-    val result = uniqueMorseRepresentations(words)
-    println(result)
-  }
-
-  private fun uniqueMorseRepresentations(words: Array<String>): Int {
-    if (words.isEmpty()) return 0
-    val result = mutableSetOf<String>()
-    words.forEach { word ->
-      val sb = StringBuilder()
-      word.toLowerCase().forEach {
-        //        sb.append(dots_array[it.toInt() - 97])
-        sb.append(dots_map[it])
-      }
-      result.add(sb.toString())
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val words = arrayOf("gin", "zen", "gig", "msg")
+        val result = uniqueMorseRepresentations(words)
+        println(result)
     }
-    return result.size
-  }
+
+    private fun uniqueMorseRepresentations(words: Array<String>): Int {
+        if (words.isEmpty()) return 0
+        val result = mutableSetOf<String>()
+        words.forEach { word ->
+            val sb = StringBuilder()
+            word.toLowerCase().forEach {
+                //        sb.append(dots_array[it.toInt() - 97])
+                sb.append(dots_map[it])
+            }
+            result.add(sb.toString())
+        }
+        return result.size
+    }
 }

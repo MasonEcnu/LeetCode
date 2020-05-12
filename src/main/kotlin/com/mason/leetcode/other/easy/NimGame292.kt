@@ -19,14 +19,14 @@ package com.mason.leetcode.other.easy
  */
 object NimGame292 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val n = 4
-    val result = canWinNim(n)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val n = 4
+        val result = canWinNim(n)
+        println(result)
+    }
 
-  private fun canWinNim(n: Int): Boolean {
-    return n and 3 != 0
-  }
+    private fun canWinNim(n: Int): Boolean {
+        return n and 3 != 0
+    }
 }

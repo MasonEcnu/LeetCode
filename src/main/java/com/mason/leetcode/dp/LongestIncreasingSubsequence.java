@@ -13,32 +13,32 @@ import java.util.Arrays;
 public class LongestIncreasingSubsequence {
 
 
-  public static void main(String[] args) {
-    int[] data = new int[]{1, 5, 3, 4, 6, 9, 7, 8};
-    System.out.println(countLongestIncreasingSubsequence(data));
-  }
+    public static void main(String[] args) {
+        int[] data = new int[]{1, 5, 3, 4, 6, 9, 7, 8};
+        System.out.println(countLongestIncreasingSubsequence(data));
+    }
 
-  private static int countLongestIncreasingSubsequence(int[] dd) {
-    int size = dd.length;
-    int[] data = new int[size + 5];
-    System.arraycopy(dd, 0, data, 1, size);
-    int[] dp = new int[size + 5];
-    Arrays.fill(dp, 1);
-    dp[0] = 0;
+    private static int countLongestIncreasingSubsequence(int[] dd) {
+        int size = dd.length;
+        int[] data = new int[size + 5];
+        System.arraycopy(dd, 0, data, 1, size);
+        int[] dp = new int[size + 5];
+        Arrays.fill(dp, 1);
+        dp[0] = 0;
 
-    for (int i = 1; i <= size; i++) {
-      for (int j = 1; j < i; j++) {
-        if (data[j] < data[i]) {
-          dp[i] = Math.max(dp[i], dp[j] + 1);
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j < i; j++) {
+                if (data[j] < data[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            System.out.format("dp[%d]=%d\n", i, dp[i]);
         }
-      }
-      System.out.format("dp[%d]=%d\n", i, dp[i]);
-    }
 
-    int ans = 0;
-    for (int i = 1; i <= size; i++) {
-      ans = Math.max(ans, dp[i]);
+        int ans = 0;
+        for (int i = 1; i <= size; i++) {
+            ans = Math.max(ans, dp[i]);
+        }
+        return ans;
     }
-    return ans;
-  }
 }

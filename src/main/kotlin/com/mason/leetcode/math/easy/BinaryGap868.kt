@@ -40,15 +40,15 @@ package com.mason.leetcode.math.easy
  */
 object BinaryGap868 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val N = 22
-    val result = binaryGap(N)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val N = 22
+        val result = binaryGap(N)
+        println(result)
+    }
 
-  private fun binaryGap(N: Int): Int {
-    val bn = N.toString(2)
+    private fun binaryGap(N: Int): Int {
+        val bn = N.toString(2)
 //    val disList = arrayListOf<Int>()
 //    bn.forEachIndexed { index, char ->
 //      if (char == '1') disList.add(index)
@@ -60,14 +60,14 @@ object BinaryGap868 {
 //      minDis = Math.max(minDis, diff)
 //    }
 //    return minDis
-    var index = 0
-    var minDis = Int.MIN_VALUE
-    bn.forEachIndexed { i, char ->
-      if (char == '1' && index != i) {
-        minDis = Math.max(minDis, i - index)
-        index = i
-      }
+        var index = 0
+        var minDis = Int.MIN_VALUE
+        bn.forEachIndexed { i, char ->
+            if (char == '1' && index != i) {
+                minDis = Math.max(minDis, i - index)
+                index = i
+            }
+        }
+        return if (minDis == Int.MIN_VALUE) 0 else minDis
     }
-    return if (minDis == Int.MIN_VALUE) 0 else minDis
-  }
 }

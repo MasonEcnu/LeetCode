@@ -54,35 +54,36 @@ import java.math.BigInteger
  */
 object String2Integer8 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    println(myAtoi("-9128347233212312312312312312312312312312312"))
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        println(myAtoi("-9128347233212312312312312312312312312312312"))
+    }
 
-  fun myAtoi(str: String): Int {
-    if (str.isEmpty()) return 0
-    if (str[0].isLetter()) return 0
-    var ans = BigInteger.ZERO
-    var flag = false
-    var len = 0
-    var temp = 0
-    for (c in str) {
-      if ((c == '-' || c == '+') && len == 0) {
-        temp++
-        if (c == '-') flag = true
-      } else if (c.isDigit() && temp < 2) {
-        ans = ans.multiply(BigInteger.valueOf(10L)).add(BigInteger.valueOf((c - '0').toLong()))
-        len++
-        if (ans.minus(BigInteger.valueOf(1L)) > BigInteger.valueOf(Int.MAX_VALUE.toLong())) break
-      } else if (c == ' ' && len == 0 && temp == 0) {
-        continue
-      } else {
-        break
-      }
+    fun myAtoi(str: String): Int {
+        if (str.isEmpty()) return 0
+        if (str[0].isLetter()) return 0
+        var ans = BigInteger.ZERO
+        var flag = false
+        var len = 0
+        var temp = 0
+        for (c in str) {
+            if ((c == '-' || c == '+') && len == 0) {
+                temp++
+                if (c == '-') flag = true
+            } else if (c.isDigit() && temp < 2) {
+                ans = ans.multiply(BigInteger.valueOf(10L)).add(BigInteger.valueOf((c - '0').toLong()))
+                len++
+                if (ans.minus(BigInteger.valueOf(1L)) > BigInteger.valueOf(Int.MAX_VALUE.toLong())) break
+            } else if (c == ' ' && len == 0 && temp == 0) {
+                continue
+            } else {
+                break
+            }
+        }
+        if (flag) {
+            return if (ans.negate() < BigInteger.valueOf(Int.MIN_VALUE.toLong())) Int.MIN_VALUE else ans.negate()
+                .intValueExact()
+        }
+        return if (ans > BigInteger.valueOf(Int.MAX_VALUE.toLong())) Int.MAX_VALUE else ans.intValueExact()
     }
-    if (flag) {
-      return if (ans.negate() < BigInteger.valueOf(Int.MIN_VALUE.toLong())) Int.MIN_VALUE else ans.negate().intValueExact()
-    }
-    return if (ans > BigInteger.valueOf(Int.MAX_VALUE.toLong())) Int.MAX_VALUE else ans.intValueExact()
-  }
 }

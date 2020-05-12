@@ -16,43 +16,43 @@ import java.util.List;
  */
 public class NaryTreeLevelOrderTraversal429 {
 
-  public static void main(String[] args) {
-    System.out.println(levelOrder(new NTreeNode(1, null)));
-  }
+    private List<List<Integer>> res = new ArrayList<>();
 
-  private static List<List<Integer>> levelOrder(NTreeNode root) {
-    List<List<Integer>> result = new ArrayList<>();
-    if (root == null) return result;
-    LinkedList<NTreeNode> queue = new LinkedList<>();
-    queue.add(root);
-    int level = 0;
-    while (!queue.isEmpty()) {
-      result.add(new ArrayList<>());
-      int queueSize = queue.size();
-      for (int i = 0; i < queueSize; i++) {
-        NTreeNode node = queue.poll();
-        if (node != null) {
-          result.get(level).add(node.val);
-          int childrenNum = node.children.size();
-          for (int j = 0; j < childrenNum; j++) {
-            queue.add(node.children.get(j));
-          }
+    public static void main(String[] args) {
+        System.out.println(levelOrder(new NTreeNode(1, null)));
+    }
+
+    private static List<List<Integer>> levelOrder(NTreeNode root) {
+        List<List<Integer>> result = new ArrayList<>();
+        if (root == null) return result;
+        LinkedList<NTreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        int level = 0;
+        while (!queue.isEmpty()) {
+            result.add(new ArrayList<>());
+            int queueSize = queue.size();
+            for (int i = 0; i < queueSize; i++) {
+                NTreeNode node = queue.poll();
+                if (node != null) {
+                    result.get(level).add(node.val);
+                    int childrenNum = node.children.size();
+                    for (int j = 0; j < childrenNum; j++) {
+                        queue.add(node.children.get(j));
+                    }
+                }
+            }
+            level++;
         }
-      }
-      level++;
+        return result;
     }
-    return result;
-  }
 
-  private List<List<Integer>> res = new ArrayList<>();
-
-  private void traverseNode(NTreeNode root, int level) {
-    if (res.size() <= level) {
-      res.add(new ArrayList<>());
+    private void traverseNode(NTreeNode root, int level) {
+        if (res.size() <= level) {
+            res.add(new ArrayList<>());
+        }
+        res.get(level).add(root.val);
+        for (NTreeNode child : root.children) {
+            traverseNode(child, level + 1);
+        }
     }
-    res.get(level).add(root.val);
-    for (NTreeNode child : root.children) {
-      traverseNode(child, level + 1);
-    }
-  }
 }

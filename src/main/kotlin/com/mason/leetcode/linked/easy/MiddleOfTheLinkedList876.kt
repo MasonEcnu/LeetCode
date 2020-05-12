@@ -21,30 +21,30 @@ package com.mason.leetcode.linked.easy
  */
 
 class ListNode(var `val`: Int = 0) {
-  var next: ListNode? = null
+    var next: ListNode? = null
 }
 
 object MergeTwoBinaryTrees617 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val head = ListNode(1)
-    head.next = ListNode(2)
-    head.next?.next = ListNode(3)
-    head.next?.next?.next = ListNode(4)
-    head.next?.next?.next?.next = ListNode(5)
-    head.next?.next?.next?.next?.next = ListNode(6)
-    println(middleNode(head)?.`val`)
-  }
-
-  // 快慢指针
-  private fun middleNode(head: ListNode?): ListNode? {
-    var slow = head
-    var fast = head
-    while (fast?.next != null) {
-      slow = slow?.next
-      fast = fast.next?.next
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val head = ListNode(1)
+        head.next = ListNode(2)
+        head.next?.next = ListNode(3)
+        head.next?.next?.next = ListNode(4)
+        head.next?.next?.next?.next = ListNode(5)
+        head.next?.next?.next?.next?.next = ListNode(6)
+        println(middleNode(head)?.`val`)
     }
-    return slow
-  }
+
+    // 快慢指针
+    private fun middleNode(head: ListNode?): ListNode? {
+        var slow = head
+        var fast = head
+        while (fast?.next != null) {
+            slow = slow?.next
+            fast = fast.next?.next
+        }
+        return slow
+    }
 }

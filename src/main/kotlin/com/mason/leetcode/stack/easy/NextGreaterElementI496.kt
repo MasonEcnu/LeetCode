@@ -1,8 +1,7 @@
 package com.mason.leetcode.stack.easy
 
 import com.mason.leetcode.tools.printIntArray
-import java.util.ArrayDeque
-import java.util.HashMap
+import java.util.*
 
 
 /**
@@ -34,15 +33,15 @@ import java.util.HashMap
  */
 object NextGreaterElementI496 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums1 = intArrayOf(2, 4)
-    val nums2 = intArrayOf(1, 2, 3, 4)
-    val result = nextGreaterElement(nums1, nums2)
-    printIntArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums1 = intArrayOf(2, 4)
+        val nums2 = intArrayOf(1, 2, 3, 4)
+        val result = nextGreaterElement(nums1, nums2)
+        printIntArray(result)
+    }
 
-  private fun nextGreaterElement(nums1: IntArray, nums2: IntArray): IntArray {
+    private fun nextGreaterElement(nums1: IntArray, nums2: IntArray): IntArray {
 //    val result = IntArray(size = nums1.size, init = { -1 })
 //    val index = IntArray(size = nums1.size)
 //    nums1.forEachIndexed { outer, ov ->
@@ -60,19 +59,19 @@ object NextGreaterElementI496 {
 //    }
 //    return result
 
-    val map = HashMap<Int, Int>()
-    val result = IntArray(nums1.size)
-    val stack = ArrayDeque<Int>()
-    for (num2 in nums2) {
-      while (!stack.isEmpty() && stack.peek() < num2) {
-        map[stack.removeFirst()] = num2
-      }
-      stack.addFirst(num2)
-    }
-    for (i in 0 until nums1.size) {
-      result[i] = map.getOrDefault(nums1[i], -1)
-    }
+        val map = HashMap<Int, Int>()
+        val result = IntArray(nums1.size)
+        val stack = ArrayDeque<Int>()
+        for (num2 in nums2) {
+            while (!stack.isEmpty() && stack.peek() < num2) {
+                map[stack.removeFirst()] = num2
+            }
+            stack.addFirst(num2)
+        }
+        for (i in 0 until nums1.size) {
+            result[i] = map.getOrDefault(nums1[i], -1)
+        }
 
-    return result
-  }
+        return result
+    }
 }

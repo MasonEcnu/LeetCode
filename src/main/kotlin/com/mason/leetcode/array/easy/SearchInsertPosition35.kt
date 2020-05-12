@@ -26,16 +26,16 @@ package com.mason.leetcode.array.easy
  */
 object SearchInsertPosition35 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(1, 3, 5, 6, 9)
-    val target = 2
-    val result = searchInsert(nums, target)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(1, 3, 5, 6, 9)
+        val target = 2
+        val result = searchInsert(nums, target)
+        println(result)
+    }
 
-  private fun searchInsert(nums: IntArray, target: Int): Int {
-    // O(n)的笨方法
+    private fun searchInsert(nums: IntArray, target: Int): Int {
+        // O(n)的笨方法
 //    var result = 0
 //    run outside@{
 //      (0 until nums.size).forEach {
@@ -50,18 +50,18 @@ object SearchInsertPosition35 {
 //    }
 //    return result
 
-    // 二分查找
-    var low = 0
-    var high = nums.size - 1
-    var mid: Int
-    while (low <= high) {
-      mid = (low + high) / 2
-      when {
-        target > nums[mid] -> low = mid + 1
-        target < nums[mid] -> high = mid - 1
-        else -> return mid
-      }
+        // 二分查找
+        var low = 0
+        var high = nums.size - 1
+        var mid: Int
+        while (low <= high) {
+            mid = (low + high) / 2
+            when {
+                target > nums[mid] -> low = mid + 1
+                target < nums[mid] -> high = mid - 1
+                else -> return mid
+            }
+        }
+        return low
     }
-    return low
-  }
 }

@@ -23,28 +23,28 @@ package com.mason.leetcode.math.easy
  */
 object PalindromeNumber9 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val x = 123321
-    val result = isPalindrome(x)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val x = 123321
+        val result = isPalindrome(x)
+        println(result)
+    }
 
-  private fun isPalindrome(x: Int): Boolean {
-    // 直接String法
+    private fun isPalindrome(x: Int): Boolean {
+        // 直接String法
 //    val temp = x.toString()
 //    return x >= 0 && temp == temp.reversed()
 
-    // 不用String法
-    if (x == 0) return true
-    if (x < 0 || x % 10 == 0) return false
+        // 不用String法
+        if (x == 0) return true
+        if (x < 0 || x % 10 == 0) return false
 
-    var invertedNum = 0
-    var temp = x
-    while (temp > invertedNum) {
-      invertedNum = invertedNum * 10 + temp % 10
-      temp /= 10
+        var invertedNum = 0
+        var temp = x
+        while (temp > invertedNum) {
+            invertedNum = invertedNum * 10 + temp % 10
+            temp /= 10
+        }
+        return temp == invertedNum || temp == invertedNum / 10
     }
-    return temp == invertedNum || temp == invertedNum / 10
-  }
 }

@@ -36,25 +36,52 @@ import com.mason.leetcode.tools.printIntArray
  */
 object NumberOfLinesToWriteString806 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val widths = intArrayOf(4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10)
-    val S = "bbbcccdddaaa"
-    val result = numberOfLines(widths, S)
-    printIntArray(result)
-  }
-
-  private fun numberOfLines(widths: IntArray, S: String): IntArray {
-    var totalWidth = 0
-    var line = 1
-    S.toCharArray().forEach {
-      val width = widths[it - 'a']
-      totalWidth += width
-      if (totalWidth > 100) {
-        line++
-        totalWidth = width
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val widths = intArrayOf(
+            4,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10,
+            10
+        )
+        val S = "bbbcccdddaaa"
+        val result = numberOfLines(widths, S)
+        printIntArray(result)
     }
-    return intArrayOf(line, totalWidth)
-  }
+
+    private fun numberOfLines(widths: IntArray, S: String): IntArray {
+        var totalWidth = 0
+        var line = 1
+        S.toCharArray().forEach {
+            val width = widths[it - 'a']
+            totalWidth += width
+            if (totalWidth > 100) {
+                line++
+                totalWidth = width
+            }
+        }
+        return intArrayOf(line, totalWidth)
+    }
 }

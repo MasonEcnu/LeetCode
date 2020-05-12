@@ -39,34 +39,34 @@ import java.util.*
  */
 object GroupsOfSpecialEquivalentStrings893 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = arrayOf("abc", "acb", "bac", "bca", "cab", "cba")
-    val result = numSpecialEquivGroups(A)
-    println(result)
-  }
-
-  // 讲真，我没理解这题要干啥？
-  private fun numSpecialEquivGroups(A: Array<String>): Int {
-    if (A.isEmpty()) return 0
-    val set = mutableSetOf<String>()
-    A.forEach {
-      val sb1 = StringBuilder()
-      val sb2 = StringBuilder()
-      it.forEachIndexed { index, c ->
-        if (index % 2 == 0) {
-          sb1.append(c)
-        } else {
-          sb2.append(c)
-        }
-      }
-      val cs1 = sb1.toString().toCharArray()
-      val cs2 = sb2.toString().toCharArray()
-      Arrays.sort(cs1)
-      Arrays.sort(cs2)
-      println(String(cs1 + cs2))
-      set.add(String(cs1 + cs2))
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = arrayOf("abc", "acb", "bac", "bca", "cab", "cba")
+        val result = numSpecialEquivGroups(A)
+        println(result)
     }
-    return set.size
-  }
+
+    // 讲真，我没理解这题要干啥？
+    private fun numSpecialEquivGroups(A: Array<String>): Int {
+        if (A.isEmpty()) return 0
+        val set = mutableSetOf<String>()
+        A.forEach {
+            val sb1 = StringBuilder()
+            val sb2 = StringBuilder()
+            it.forEachIndexed { index, c ->
+                if (index % 2 == 0) {
+                    sb1.append(c)
+                } else {
+                    sb2.append(c)
+                }
+            }
+            val cs1 = sb1.toString().toCharArray()
+            val cs2 = sb2.toString().toCharArray()
+            Arrays.sort(cs1)
+            Arrays.sort(cs2)
+            println(String(cs1 + cs2))
+            set.add(String(cs1 + cs2))
+        }
+        return set.size
+    }
 }

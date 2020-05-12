@@ -24,17 +24,17 @@ package com.mason.leetcode.string.easy
  */
 object ReverseOnlyLetters917 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val S = "7_28"
-    val result = reverseOnlyLetters(S)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val S = "7_28"
+        val result = reverseOnlyLetters(S)
+        println(result)
+    }
 
-  private val big_range = (65..90)
-  private val small_range = (97..122)
+    private val big_range = (65..90)
+    private val small_range = (97..122)
 
-  private fun reverseOnlyLetters(S: String): String {
+    private fun reverseOnlyLetters(S: String): String {
 //    val temp = S.filter { it.toInt() in big_range || it.toInt() in small_range }.reversed()
 //    var index = 0
 //    val cs = S.toCharArray()
@@ -46,7 +46,7 @@ object ReverseOnlyLetters917 {
 //    }
 //    return String(cs)
 
-    // 自带类库
+        // 自带类库
 //    val temp = S.filter { Character.isLetter(it) }.reversed()
 //    var index = 0
 //    val cs = S.toCharArray()
@@ -58,27 +58,27 @@ object ReverseOnlyLetters917 {
 //    }
 //    return String(cs)
 
-    // 前后指针
-    var front = 0
-    var back = S.length - 1
-    val cs = S.toCharArray()
-    while (front < back) {
-      when {
-        Character.isLetter(cs[front]) && Character.isLetter(cs[back]) -> {
-          val c = cs[front]
-          cs[front] = cs[back]
-          cs[back] = c
-          front++
-          back--
+        // 前后指针
+        var front = 0
+        var back = S.length - 1
+        val cs = S.toCharArray()
+        while (front < back) {
+            when {
+                Character.isLetter(cs[front]) && Character.isLetter(cs[back]) -> {
+                    val c = cs[front]
+                    cs[front] = cs[back]
+                    cs[back] = c
+                    front++
+                    back--
+                }
+                Character.isLetter(cs[front]) -> back--
+                Character.isLetter(cs[back]) -> front++
+                else -> {
+                    front++
+                    back--
+                }
+            }
         }
-        Character.isLetter(cs[front]) -> back--
-        Character.isLetter(cs[back]) -> front++
-        else -> {
-          front++
-          back--
-        }
-      }
+        return String(cs)
     }
-    return String(cs)
-  }
 }

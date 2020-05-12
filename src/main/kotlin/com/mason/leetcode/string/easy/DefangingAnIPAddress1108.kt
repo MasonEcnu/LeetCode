@@ -20,13 +20,13 @@ package com.mason.leetcode.string.easy
  * 其实应该校验下ip地址是否合法
  */
 object DefangingAnIPAddress1108 {
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val address = "255.100.50.0"
-    println(defangIPaddr(address))
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val address = "255.100.50.0"
+        println(defangIPaddr(address))
+    }
 
-  fun defangIPaddr(address: String): String {
-    return address.replace(".", "[.]")
-  }
+    fun defangIPaddr(address: String): String {
+        return address.replace(".", "[.]")
+    }
 }

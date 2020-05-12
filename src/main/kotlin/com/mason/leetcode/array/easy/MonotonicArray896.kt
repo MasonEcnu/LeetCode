@@ -32,29 +32,29 @@ package com.mason.leetcode.array.easy
  */
 object MonotonicArray896 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = intArrayOf(3, 2, 2, 3)
-    val result = isMonotonic(A)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = intArrayOf(3, 2, 2, 3)
+        val result = isMonotonic(A)
+        println(result)
+    }
 
-  private fun isMonotonic(A: IntArray): Boolean {
+    private fun isMonotonic(A: IntArray): Boolean {
 //    return A.contentEquals(A.sortedArray()) || A.contentEquals(A.sortedArrayDescending())
 
-    var inc = 1
-    var dec = 1
-    val size = A.size
-    (0 until size - 1).forEach {
-      when {
-        A[it] > A[it + 1] -> dec++
-        A[it] < A[it + 1] -> inc++
-        else -> {
-          inc++
-          dec++
+        var inc = 1
+        var dec = 1
+        val size = A.size
+        (0 until size - 1).forEach {
+            when {
+                A[it] > A[it + 1] -> dec++
+                A[it] < A[it + 1] -> inc++
+                else -> {
+                    inc++
+                    dec++
+                }
+            }
         }
-      }
+        return inc == size || dec == size
     }
-    return inc == size || dec == size
-  }
 }

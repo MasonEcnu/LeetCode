@@ -43,51 +43,51 @@ import java.util.*
  */
 object BaseballGame682 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val ops = arrayOf("5", "-2", "4", "C", "D", "9", "+", "+")
-    val result = calPoints(ops)
-    println(result)
-  }
-
-  private fun calPoints(ops: Array<String>): Int {
-    if (ops.isEmpty()) return 0
-    val validPoints = Stack<Int>()
-    var sum = 0
-    var score: Int
-    ops.forEach { str ->
-      when (str) {
-        "C" -> {
-          if (validPoints.isNotEmpty()) {
-            score = validPoints.pop()
-            sum -= score
-          }
-        }
-        "D" -> {
-          if (validPoints.isNotEmpty()) {
-            score = validPoints.peek()
-            sum += score * 2
-            validPoints.push(score * 2)
-          }
-        }
-        "+" -> {
-          if (validPoints.size >= 2) {
-            val score1 = validPoints.pop()
-            val score2 = validPoints.pop()
-            val score3 = score1 + score2
-            sum += score3
-            validPoints.push(score2)
-            validPoints.push(score1)
-            validPoints.push(score3)
-          }
-        }
-        else -> {
-          score = str.toInt()
-          sum += score
-          validPoints.push(score)
-        }
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val ops = arrayOf("5", "-2", "4", "C", "D", "9", "+", "+")
+        val result = calPoints(ops)
+        println(result)
     }
-    return sum
-  }
+
+    private fun calPoints(ops: Array<String>): Int {
+        if (ops.isEmpty()) return 0
+        val validPoints = Stack<Int>()
+        var sum = 0
+        var score: Int
+        ops.forEach { str ->
+            when (str) {
+                "C" -> {
+                    if (validPoints.isNotEmpty()) {
+                        score = validPoints.pop()
+                        sum -= score
+                    }
+                }
+                "D" -> {
+                    if (validPoints.isNotEmpty()) {
+                        score = validPoints.peek()
+                        sum += score * 2
+                        validPoints.push(score * 2)
+                    }
+                }
+                "+" -> {
+                    if (validPoints.size >= 2) {
+                        val score1 = validPoints.pop()
+                        val score2 = validPoints.pop()
+                        val score3 = score1 + score2
+                        sum += score3
+                        validPoints.push(score2)
+                        validPoints.push(score1)
+                        validPoints.push(score3)
+                    }
+                }
+                else -> {
+                    score = str.toInt()
+                    sum += score
+                    validPoints.push(score)
+                }
+            }
+        }
+        return sum
+    }
 }

@@ -21,23 +21,23 @@ import com.mason.leetcode.tools.printArray
  */
 object TransposeMatrix867 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6))
-    val result = transpose(A)
-    printArray(result)
-  }
-
-  private fun transpose(A: Array<IntArray>): Array<IntArray> {
-    if (A.isEmpty()) return A
-    val m = A.size
-    val n = A[0].size
-    val B = Array(n, init = { IntArray(m) })
-    (0 until m).forEach { i ->
-      (0 until n).forEach { j ->
-        B[j][i] = A[i][j]
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6))
+        val result = transpose(A)
+        printArray(result)
     }
-    return B
-  }
+
+    private fun transpose(A: Array<IntArray>): Array<IntArray> {
+        if (A.isEmpty()) return A
+        val m = A.size
+        val n = A[0].size
+        val B = Array(n, init = { IntArray(m) })
+        (0 until m).forEach { i ->
+            (0 until n).forEach { j ->
+                B[j][i] = A[i][j]
+            }
+        }
+        return B
+    }
 }

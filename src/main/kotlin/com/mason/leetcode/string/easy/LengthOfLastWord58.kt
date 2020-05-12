@@ -14,25 +14,25 @@ package com.mason.leetcode.string.easy
  */
 object LengthOfLastWord58 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val s = "Hello"
-    val result = lengthOfLastWord(s)
-    println(result)
-  }
-
-  private fun lengthOfLastWord(s: String): Int {
-    // one line
-//    return s.trim().split(" ").last().length
-    // 其他方法
-    var len = 0
-    var tail = s.length - 1
-    // 功能类似于trim()
-    while (tail >= 0 && ' ' == s[tail]) tail--
-    while (tail >= 0 && ' ' != s[tail]) {
-      tail--
-      len++
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val s = "Hello"
+        val result = lengthOfLastWord(s)
+        println(result)
     }
-    return len
-  }
+
+    private fun lengthOfLastWord(s: String): Int {
+        // one line
+//    return s.trim().split(" ").last().length
+        // 其他方法
+        var len = 0
+        var tail = s.length - 1
+        // 功能类似于trim()
+        while (tail >= 0 && ' ' == s[tail]) tail--
+        while (tail >= 0 && ' ' != s[tail]) {
+            tail--
+            len++
+        }
+        return len
+    }
 }

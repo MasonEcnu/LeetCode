@@ -28,22 +28,22 @@ package com.mason.leetcode.math.easy
  */
 object SmallestRangeI908 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = intArrayOf(0, 2, 4, 6, 8, 10)
-    val K = 2
-    val result = smallestRangeI(A, K)
-    println(result)
-  }
-
-  private fun smallestRangeI(A: IntArray, K: Int): Int {
-    if (A.isEmpty()) return 0
-    var min = A[0]
-    var max = A[0]
-    A.forEach {
-      min = Math.min(min, it)
-      max = Math.max(max, it)
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = intArrayOf(0, 2, 4, 6, 8, 10)
+        val K = 2
+        val result = smallestRangeI(A, K)
+        println(result)
     }
-    return Math.max(0, max - min - 2 * K)
-  }
+
+    private fun smallestRangeI(A: IntArray, K: Int): Int {
+        if (A.isEmpty()) return 0
+        var min = A[0]
+        var max = A[0]
+        A.forEach {
+            min = Math.min(min, it)
+            max = Math.max(max, it)
+        }
+        return Math.max(0, max - min - 2 * K)
+    }
 }

@@ -22,15 +22,15 @@ package com.mason.leetcode.binary.easy
  */
 object PeakIndexInMountainArray852 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val A = intArrayOf(0, 1, 0)
-    val result = peakIndexInMountainArray(A)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val A = intArrayOf(0, 1, 0)
+        val result = peakIndexInMountainArray(A)
+        println(result)
+    }
 
-  private fun peakIndexInMountainArray(A: IntArray): Int {
-    if (A.size < 3) return 0
+    private fun peakIndexInMountainArray(A: IntArray): Int {
+        if (A.size < 3) return 0
 //    var max = A[0]
 //    var index = 0
 //    A.forEachIndexed { i, value ->
@@ -41,6 +41,6 @@ object PeakIndexInMountainArray852 {
 //    }
 //    return index
 
-    return A.indexOf(A.max() ?: A[0])
-  }
+        return A.indexOf(A.max() ?: A[0])
+    }
 }

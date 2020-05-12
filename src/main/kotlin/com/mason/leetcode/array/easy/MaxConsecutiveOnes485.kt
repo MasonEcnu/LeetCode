@@ -16,24 +16,24 @@ package com.mason.leetcode.array.easy
  */
 object MaxConsecutiveOnes485 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(1, 1, 0, 1, 1, 1)
-    val result = findMaxConsecutiveOnes(nums)
-    println(result)
-  }
-
-  private fun findMaxConsecutiveOnes(nums: IntArray): Int {
-    var count = 0
-    var max = 0
-    nums.forEach {
-      if (it == 1) {
-        count++
-        max = Math.max(max, count)
-      } else {
-        count = 0
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(1, 1, 0, 1, 1, 1)
+        val result = findMaxConsecutiveOnes(nums)
+        println(result)
     }
-    return max
-  }
+
+    private fun findMaxConsecutiveOnes(nums: IntArray): Int {
+        var count = 0
+        var max = 0
+        nums.forEach {
+            if (it == 1) {
+                count++
+                max = Math.max(max, count)
+            } else {
+                count = 0
+            }
+        }
+        return max
+    }
 }

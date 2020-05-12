@@ -8,53 +8,53 @@ import com.mason.leetcode.linked.easy.ListNode
  */
 
 fun printIntArray(data: IntArray) {
-  data.forEach {
-    print("$it ")
-  }
-  println()
+    data.forEach {
+        print("$it ")
+    }
+    println()
 }
 
 fun printArray(data: Array<*>) {
-  data.forEach {
-    print("$it ")
-  }
-  println()
+    data.forEach {
+        print("$it ")
+    }
+    println()
 }
 
 fun printArray(data: Array<IntArray>) {
-  data.forEach { outer ->
-    outer.forEach { inner ->
-      print("$inner ")
+    data.forEach { outer ->
+        outer.forEach { inner ->
+            print("$inner ")
+        }
+        println()
     }
     println()
-  }
-  println()
 }
 
 fun printLinkedList(data: ListNode?) {
-  var head: ListNode? = data ?: return
-  while (head != null) {
-    print("${head.`val`} ")
-    head = head.next
-  }
-  println()
+    var head: ListNode? = data ?: return
+    while (head != null) {
+        print("${head.`val`} ")
+        head = head.next
+    }
+    println()
 }
 
 fun printList(data: List<*>) {
-  data.forEach {
-    println("$it ")
-  }
+    data.forEach {
+        println("$it ")
+    }
 }
 
 fun printCollection(data: Collection<*>) {
-  data.forEach {
-    println(it)
-  }
+    data.forEach {
+        println(it)
+    }
 }
 
 object PrintTools {
-  @JvmStatic
-  fun main(args: Array<String>) {
+    @JvmStatic
+    fun main(args: Array<String>) {
 
-  }
+    }
 }

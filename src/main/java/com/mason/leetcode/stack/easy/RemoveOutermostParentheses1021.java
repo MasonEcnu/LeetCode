@@ -42,53 +42,53 @@ import java.util.Stack;
  */
 public class RemoveOutermostParentheses1021 {
 
-  public static void main(String[] args) {
-    String s = "()(()))";
-    System.out.println(removeOuterParentheses(s));
-  }
-
-  private static String oldRemoveOuterParentheses(String s) {
-    if (s.isEmpty()) return "";
-    StringBuilder sb = new StringBuilder();
-    Stack<Character> stack = new Stack<>();
-    int start = 0, end;
-    boolean flag = false;
-    for (int i = 0; i < s.length(); i++) {
-      char c = s.charAt(i);
-      if (c == '(') {
-        stack.push(c);
-        if (!flag) {
-          start = i;
-          flag = true;
-        }
-      }
-
-      if (c == ')') {
-        stack.pop();
-        if (stack.isEmpty()) {
-          end = i;
-          sb.append(s, start + 1, end);
-          start = end;
-          flag = false;
-        }
-      }
+    public static void main(String[] args) {
+        String s = "()(()))";
+        System.out.println(removeOuterParentheses(s));
     }
-    return sb.toString();
-  }
 
-  private static String removeOuterParentheses(String s) {
-    if (s.isEmpty()) return "";
-    StringBuilder sb = new StringBuilder();
-    int start = 0, num = 0;
-    for (int i = 0; i < s.length(); i++) {
-      char c = s.charAt(i);
-      if (c == '(') num++;
-      if (c == ')') num--;
+    private static String oldRemoveOuterParentheses(String s) {
+        if (s.isEmpty()) return "";
+        StringBuilder sb = new StringBuilder();
+        Stack<Character> stack = new Stack<>();
+        int start = 0, end;
+        boolean flag = false;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') {
+                stack.push(c);
+                if (!flag) {
+                    start = i;
+                    flag = true;
+                }
+            }
 
-      if (num == 1 && c == '(') start = i;
-
-      if (num == 0) sb.append(s, start + 1, i);
+            if (c == ')') {
+                stack.pop();
+                if (stack.isEmpty()) {
+                    end = i;
+                    sb.append(s, start + 1, end);
+                    start = end;
+                    flag = false;
+                }
+            }
+        }
+        return sb.toString();
     }
-    return sb.toString();
-  }
+
+    private static String removeOuterParentheses(String s) {
+        if (s.isEmpty()) return "";
+        StringBuilder sb = new StringBuilder();
+        int start = 0, num = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == '(') num++;
+            if (c == ')') num--;
+
+            if (num == 1 && c == '(') start = i;
+
+            if (num == 0) sb.append(s, start + 1, i);
+        }
+        return sb.toString();
+    }
 }

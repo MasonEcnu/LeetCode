@@ -28,29 +28,29 @@ package com.mason.leetcode.hash.easy
  */
 object DistributeCandies575 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val candies = intArrayOf(100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0)
-    val result = distributeCandies(candies)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val candies = intArrayOf(100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0, 100000, 0)
+        val result = distributeCandies(candies)
+        println(result)
+    }
 
-  private fun distributeCandies(candies: IntArray): Int {
+    private fun distributeCandies(candies: IntArray): Int {
 //    if (candies.size % 2 == 1) return 0
 //    val size = candies.size
 //    val num = size / 2  // sister最多可以拿到的candy数量
 //    val kinds = candies.toHashSet().size
 //    return if (num >= kinds) kinds else num
 
-    if (candies.size % 2 == 1) return 0
-    val size = candies.size
-    val num = size / 2  // sister最多可以拿到的candy数量
-    var kinds = 1
-    candies.sort()
-    candies.forEachIndexed { index, value ->
-      if (index == 0) return@forEachIndexed
-      if (value != candies[index - 1]) kinds++
+        if (candies.size % 2 == 1) return 0
+        val size = candies.size
+        val num = size / 2  // sister最多可以拿到的candy数量
+        var kinds = 1
+        candies.sort()
+        candies.forEachIndexed { index, value ->
+            if (index == 0) return@forEachIndexed
+            if (value != candies[index - 1]) kinds++
+        }
+        return if (num >= kinds) kinds else num
     }
-    return if (num >= kinds) kinds else num
-  }
 }

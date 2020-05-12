@@ -30,28 +30,28 @@ package com.mason.leetcode.math.easy;
  */
 public class FibonacciNumber509 {
 
-  public static void main(String[] args) {
-    System.out.println(fibWithRecursion(10));
-    System.out.println(fibWithoutRecursion(10));
-  }
-
-  private static int fibWithRecursion(int N) {
-    if (N <= 0) return N;
-    if (N <= 2) return 1;
-    return fibWithRecursion(N - 2) + fibWithRecursion(N - 1);
-  }
-
-  private static int fibWithoutRecursion(int N) {
-    if (N <= 0) return N;
-    if (N <= 2) return 1;
-    int a = 0, b = 1;
-    while (N > 1) {
-      int sum = a + b;
-      a = b;
-      b = sum;
-      N--;
+    public static void main(String[] args) {
+        System.out.println(fibWithRecursion(10));
+        System.out.println(fibWithoutRecursion(10));
     }
-    return b;
-  }
+
+    private static int fibWithRecursion(int N) {
+        if (N <= 0) return N;
+        if (N <= 2) return 1;
+        return fibWithRecursion(N - 2) + fibWithRecursion(N - 1);
+    }
+
+    private static int fibWithoutRecursion(int N) {
+        if (N <= 0) return N;
+        if (N <= 2) return 1;
+        int a = 0, b = 1;
+        while (N > 1) {
+            int sum = a + b;
+            a = b;
+            b = sum;
+            N--;
+        }
+        return b;
+    }
 
 }

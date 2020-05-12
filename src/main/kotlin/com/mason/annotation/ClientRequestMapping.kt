@@ -72,7 +72,8 @@ object AnnotationTest {
           fileList.forEach { file ->
             val fileName = file.absolutePath
             if (fileName.endsWith(".class")) {
-              val noSuffixFileName = fileName.substring(5 + fileName.lastIndexOf("main"), fileName.indexOf(".class"))
+              val noSuffixFileName =
+                fileName.substring(5 + fileName.lastIndexOf("main"), fileName.indexOf(".class"))
               val filePackage = noSuffixFileName.replace("\\", ".")
               try {
                 val clazz = Class.forName(filePackage)

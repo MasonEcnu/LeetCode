@@ -31,26 +31,26 @@ package com.mason.leetcode.math.easy
  */
 object ProjectionAreaOf3DShapes883 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val grid = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
-    val result = projectionArea(grid)
-    println(result)
-  }
-
-  private fun projectionArea(grid: Array<IntArray>): Int {
-    if (grid.isEmpty()) return 0
-    var up = 0
-    grid.indices.forEach { i ->
-      var side = 0
-      var front = 0
-      grid[i].indices.forEach { j ->
-        if (grid[i][j] > 0) up++
-        side = Math.max(side, grid[i][j])
-        front = Math.max(front, grid[j][i])
-      }
-      up += side + front
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val grid = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
+        val result = projectionArea(grid)
+        println(result)
     }
-    return up
-  }
+
+    private fun projectionArea(grid: Array<IntArray>): Int {
+        if (grid.isEmpty()) return 0
+        var up = 0
+        grid.indices.forEach { i ->
+            var side = 0
+            var front = 0
+            grid[i].indices.forEach { j ->
+                if (grid[i][j] > 0) up++
+                side = Math.max(side, grid[i][j])
+                front = Math.max(front, grid[j][i])
+            }
+            up += side + front
+        }
+        return up
+    }
 }

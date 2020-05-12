@@ -18,15 +18,15 @@ package com.mason.leetcode.bit.easy
  */
 object SingleNumber136 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(4, 1, 2, 1, 2)
-    val result = singleNumber(nums)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(4, 1, 2, 1, 2)
+        val result = singleNumber(nums)
+        println(result)
+    }
 
-  private fun singleNumber(nums: IntArray): Int {
-    // 再也不做空判断了。。。尼玛，这么影响性能的
+    private fun singleNumber(nums: IntArray): Int {
+        // 再也不做空判断了。。。尼玛，这么影响性能的
 //    if (nums.isEmpty()) return 0
 //    var result = 0
 //    (0 until nums.size).forEach { it ->
@@ -34,19 +34,19 @@ object SingleNumber136 {
 //    }
 //    return result
 
-    val countMap = hashMapOf<Int, Int>()
-    nums.forEach {
-      val value = countMap[it]
-      if (value == null) {
-        countMap[it] = 1
-      } else {
-        var temp = countMap[it]
-        if (temp != null) {
-          temp++
-          countMap[it] = temp
+        val countMap = hashMapOf<Int, Int>()
+        nums.forEach {
+            val value = countMap[it]
+            if (value == null) {
+                countMap[it] = 1
+            } else {
+                var temp = countMap[it]
+                if (temp != null) {
+                    temp++
+                    countMap[it] = temp
+                }
+            }
         }
-      }
+        return countMap.entries.find { it.value == 1 }?.key ?: 0
     }
-    return countMap.entries.find { it.value == 1 }?.key ?: 0
-  }
 }

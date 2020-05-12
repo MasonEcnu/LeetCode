@@ -23,16 +23,16 @@ import com.mason.leetcode.tools.printIntArray
  */
 object PlusOne66 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val digits = intArrayOf(9, 9)
-    val result = plusOne(digits)
-    printIntArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val digits = intArrayOf(9, 9)
+        val result = plusOne(digits)
+        printIntArray(result)
+    }
 
-  private fun plusOne(digits: IntArray): IntArray {
-    // easy way
-    // 不能处理太大的数
+    private fun plusOne(digits: IntArray): IntArray {
+        // easy way
+        // 不能处理太大的数
 //    val sb = StringBuilder()
 //    digits.forEach {
 //      sb.append(it)
@@ -44,20 +44,20 @@ object PlusOne66 {
 //    }
 //    return result
 
-    // 牛逼！！！
-    if (digits.isEmpty()) {
-      return digits
+        // 牛逼！！！
+        if (digits.isEmpty()) {
+            return digits
+        }
+        for (i in digits.size - 1 downTo 0) {
+            if (digits[i] < 9) {
+                digits[i]++
+                return digits
+            } else {
+                digits[i] = 0
+            }
+        }
+        val result = IntArray(digits.size + 1)
+        result[0] = 1
+        return result
     }
-    for (i in digits.size - 1 downTo 0) {
-      if (digits[i] < 9) {
-        digits[i]++
-        return digits
-      } else {
-        digits[i] = 0
-      }
-    }
-    val result = IntArray(digits.size + 1)
-    result[0] = 1
-    return result
-  }
 }

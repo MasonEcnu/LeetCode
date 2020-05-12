@@ -16,20 +16,20 @@ import com.mason.leetcode.tools.printArray
  */
 object KeyboardRow500 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val words = arrayOf("Hello", "Alaska", "Dad", "Peace")
-    val result = findWords(words)
-    printArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val words = arrayOf("Hello", "Alaska", "Dad", "Peace")
+        val result = findWords(words)
+        printArray(result)
+    }
 
-  private val keyboardLine = arrayOf("qwertyuiopQWERTYUIOP", "asdfghjklASDFGHJKL", "zxcvbnmZXCVBNM")
+    private val keyboardLine = arrayOf("qwertyuiopQWERTYUIOP", "asdfghjklASDFGHJKL", "zxcvbnmZXCVBNM")
 
-  // 用map存储keyboardLine的index也ok的
-  // 后面就是比较words中的每一个word，是否有character位于不用的index
+    // 用map存储keyboardLine的index也ok的
+    // 后面就是比较words中的每一个word，是否有character位于不用的index
 
-  private fun findWords(words: Array<String>): Array<String> {
-    // 方法一
+    private fun findWords(words: Array<String>): Array<String> {
+        // 方法一
 //    if (words.isEmpty()) return emptyArray()
 //    val result = arrayListOf<String>()
 //    words.forEach { outer ->
@@ -41,24 +41,24 @@ object KeyboardRow500 {
 //    }
 //    return result.toTypedArray()
 
-    // 方法二
-    if (words.isEmpty()) return emptyArray()
-    val indexMap = hashMapOf<Char, Int>()
-    keyboardLine.forEachIndexed { index, s ->
-      s.toCharArray().forEach {
-        indexMap[it] = index
-      }
-    }
-    val result = arrayListOf<String>()
-    words.forEach { outer ->
-      var index = indexMap[outer[0]]
-      outer.toCharArray().forEach { inner ->
-        if (indexMap[inner] ?: Int.MAX_VALUE != (index)) {
-          index = Int.MIN_VALUE
+        // 方法二
+        if (words.isEmpty()) return emptyArray()
+        val indexMap = hashMapOf<Char, Int>()
+        keyboardLine.forEachIndexed { index, s ->
+            s.toCharArray().forEach {
+                indexMap[it] = index
+            }
         }
-      }
-      if (index != Int.MIN_VALUE) result.add(outer)
+        val result = arrayListOf<String>()
+        words.forEach { outer ->
+            var index = indexMap[outer[0]]
+            outer.toCharArray().forEach { inner ->
+                if (indexMap[inner] ?: Int.MAX_VALUE != (index)) {
+                    index = Int.MIN_VALUE
+                }
+            }
+            if (index != Int.MIN_VALUE) result.add(outer)
+        }
+        return result.toTypedArray()
     }
-    return result.toTypedArray()
-  }
 }

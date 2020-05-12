@@ -40,14 +40,14 @@ package com.mason.leetcode.array.easy
  */
 object ToeplitzMatrix766 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val matrix = arrayOf(intArrayOf(1, 2, 3, 4), intArrayOf(5, 1, 2, 3), intArrayOf(9, 5, 1, 2))
-    val result = isToeplitzMatrix(matrix)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val matrix = arrayOf(intArrayOf(1, 2, 3, 4), intArrayOf(5, 1, 2, 3), intArrayOf(9, 5, 1, 2))
+        val result = isToeplitzMatrix(matrix)
+        println(result)
+    }
 
-  private fun isToeplitzMatrix(matrix: Array<IntArray>): Boolean {
+    private fun isToeplitzMatrix(matrix: Array<IntArray>): Boolean {
 //    if (matrix.isEmpty()) return true
 //    val m = matrix.size // 行
 //    val n = matrix[0].size  // 列
@@ -61,25 +61,25 @@ object ToeplitzMatrix766 {
 //    result.add(getObliqueSet(0, 0, m, n, matrix))
 //    return result.all { it.size == 1 }
 
-    // 同样的双重遍历，只是空间复杂度降低为O(1)了
-    if (matrix.isEmpty()) return true
-    (0 until matrix.size - 1).forEach { outer ->
-      (0 until matrix[0].size - 1).forEach { inner ->
-        if (matrix[outer][inner] != matrix[outer + 1][inner + 1]) return false
-      }
+        // 同样的双重遍历，只是空间复杂度降低为O(1)了
+        if (matrix.isEmpty()) return true
+        (0 until matrix.size - 1).forEach { outer ->
+            (0 until matrix[0].size - 1).forEach { inner ->
+                if (matrix[outer][inner] != matrix[outer + 1][inner + 1]) return false
+            }
+        }
+        return true
     }
-    return true
-  }
 
-  private fun getObliqueSet(mStart: Int, nStart: Int, m: Int, n: Int, matrix: Array<IntArray>): Set<Int> {
-    var ms = mStart
-    var ns = nStart
-    val result = hashSetOf<Int>()
-    while (ms < m && ns < n) {
-      result.add(matrix[ms][ns])
-      ms++
-      ns++
+    private fun getObliqueSet(mStart: Int, nStart: Int, m: Int, n: Int, matrix: Array<IntArray>): Set<Int> {
+        var ms = mStart
+        var ns = nStart
+        val result = hashSetOf<Int>()
+        while (ms < m && ns < n) {
+            result.add(matrix[ms][ns])
+            ms++
+            ns++
+        }
+        return result
     }
-    return result
-  }
 }

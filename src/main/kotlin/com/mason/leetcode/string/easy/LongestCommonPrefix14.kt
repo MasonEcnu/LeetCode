@@ -21,22 +21,22 @@ package com.mason.leetcode.string.easy
  */
 object LongestCommonPrefix14 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val strs = arrayOf("flower", "flow", "flight")
-    val result = longestCommonPrefix(strs)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val strs = arrayOf("flower", "flow", "flight")
+        val result = longestCommonPrefix(strs)
+        println(result)
+    }
 
-  // 这么简单的题都不会，我觉得我是废了
-  private fun longestCommonPrefix(strs: Array<String>): String {
-    if (strs.isEmpty()) return ""
-    var prefix = strs[0]
-    for (i in 1 until strs.size)
-      while (strs[i].indexOf(prefix) != 0) {
-        prefix = prefix.substring(0, prefix.length - 1)
-        if (prefix.isEmpty()) return ""
-      }
-    return prefix
-  }
+    // 这么简单的题都不会，我觉得我是废了
+    private fun longestCommonPrefix(strs: Array<String>): String {
+        if (strs.isEmpty()) return ""
+        var prefix = strs[0]
+        for (i in 1 until strs.size)
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length - 1)
+                if (prefix.isEmpty()) return ""
+            }
+        return prefix
+    }
 }

@@ -28,26 +28,26 @@ package com.mason.leetcode.string.easy
  */
 object RobotReturn2Origin657 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val moves = "LDRRLRUULR"
-    val result = judgeCircle(moves)
-    println(result)
-  }
-
-  private fun judgeCircle(moves: String): Boolean {
-    if (moves.isEmpty()) return true
-    var s1 = 0
-    var s2 = 0
-    // 左加右减，上加下减
-    moves.forEach {
-      when (it) {
-        'L' -> s1++
-        'R' -> s1--
-        'U' -> s2++
-        'D' -> s2--
-      }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val moves = "LDRRLRUULR"
+        val result = judgeCircle(moves)
+        println(result)
     }
-    return s1 == 0 && s2 == 0
-  }
+
+    private fun judgeCircle(moves: String): Boolean {
+        if (moves.isEmpty()) return true
+        var s1 = 0
+        var s2 = 0
+        // 左加右减，上加下减
+        moves.forEach {
+            when (it) {
+                'L' -> s1++
+                'R' -> s1--
+                'U' -> s2++
+                'D' -> s2--
+            }
+        }
+        return s1 == 0 && s2 == 0
+    }
 }

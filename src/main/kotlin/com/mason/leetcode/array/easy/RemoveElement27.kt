@@ -27,17 +27,17 @@ import com.mason.leetcode.tools.printIntArray
  */
 object RemoveElement27 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = intArrayOf(0, 1, 2, 2, 3, 0, 4, 2)
-    val value = 2
-    val result = removeElement(nums, value)
-    // IntRange：是一个闭区间
-    printIntArray(nums)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = intArrayOf(0, 1, 2, 2, 3, 0, 4, 2)
+        val value = 2
+        val result = removeElement(nums, value)
+        // IntRange：是一个闭区间
+        printIntArray(nums)
+        println(result)
+    }
 
-  private fun removeElement(nums: IntArray, `val`: Int): Int {
+    private fun removeElement(nums: IntArray, `val`: Int): Int {
 //    var slow = 0
 //    (0 until nums.size).forEach {
 //      if (nums[it] != `val`) {
@@ -49,12 +49,12 @@ object RemoveElement27 {
 //    }
 //    return slow
 
-    var index = 0
-    (0 until nums.size).forEach {
-      if (nums[it] != `val`) {
-        nums[index++] = nums[it]
-      }
+        var index = 0
+        (0 until nums.size).forEach {
+            if (nums[it] != `val`) {
+                nums[index++] = nums[it]
+            }
+        }
+        return index
     }
-    return index
-  }
 }

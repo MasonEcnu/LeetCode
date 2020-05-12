@@ -32,25 +32,25 @@ import java.util.Arrays;
  */
 public class DIStringMatch942 {
 
-  public static void main(String[] args) {
-    String s = "IDID";
-    Arrays.stream(diStringMatch(s)).forEach(
-        System.out::println
-    );
-  }
-
-  private static int[] diStringMatch(String S) {
-    int len = S.length();
-    int min = 0, max = len;
-    int[] result = new int[len + 1];
-    for (int i = 0; i < len; ++i) {
-      if (S.charAt(i) == 'I') {
-        result[i] = min++;
-      } else {
-        result[i] = max--;
-      }
+    public static void main(String[] args) {
+        String s = "IDID";
+        Arrays.stream(diStringMatch(s)).forEach(
+                System.out::println
+        );
     }
-    result[len] = min;
-    return result;
-  }
+
+    private static int[] diStringMatch(String S) {
+        int len = S.length();
+        int min = 0, max = len;
+        int[] result = new int[len + 1];
+        for (int i = 0; i < len; ++i) {
+            if (S.charAt(i) == 'I') {
+                result[i] = min++;
+            } else {
+                result[i] = max--;
+            }
+        }
+        result[len] = min;
+        return result;
+    }
 }

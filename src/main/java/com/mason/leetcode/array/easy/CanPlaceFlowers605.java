@@ -25,51 +25,51 @@ import static com.mason.leetcode.tools.PrintToolsKt.printIntArray;
  */
 public class CanPlaceFlowers605 {
 
-  public static void main(String[] args) {
-    int[] flowerbed = new int[]{0, 0, 1, 0, 0};
-    int n = 1;
-    System.out.println(canPlaceFlowers(flowerbed, n));
-  }
-
-  private static boolean canPlaceFlowers(int[] flowerbed, int n) {
-    if (n / 2 >= flowerbed.length) return false;
-    for (int i = 0; i < flowerbed.length; i++) {
-      if (flowerbed[i] == 0 && (i == 0 || flowerbed[i - 1] == 0) && (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
-        flowerbed[i] = 1;
-        n--;
-      }
+    public static void main(String[] args) {
+        int[] flowerbed = new int[]{0, 0, 1, 0, 0};
+        int n = 1;
+        System.out.println(canPlaceFlowers(flowerbed, n));
     }
-    printIntArray(flowerbed);
-    return n <= 0;
-  }
 
-  private static boolean oldCanPlaceFlowers(int[] flowerbed, int n) {
-    if (n / 2 >= flowerbed.length) return false;
-    for (int i = 0; i < flowerbed.length; i++) {
-      int down = i - 1, up = i + 1;
-      if (down < 0 && up >= flowerbed.length) {
-        if (flowerbed[i] == 0) {
-          flowerbed[i] = 1;
-          n--;
+    private static boolean canPlaceFlowers(int[] flowerbed, int n) {
+        if (n / 2 >= flowerbed.length) return false;
+        for (int i = 0; i < flowerbed.length; i++) {
+            if (flowerbed[i] == 0 && (i == 0 || flowerbed[i - 1] == 0) && (i == flowerbed.length - 1 || flowerbed[i + 1] == 0)) {
+                flowerbed[i] = 1;
+                n--;
+            }
         }
-      } else if (down < 0) {
-        if (flowerbed[up] == 0 && flowerbed[i] == 0) {
-          flowerbed[i] = 1;
-          n--;
-        }
-      } else if (up >= flowerbed.length) {
-        if (flowerbed[down] == 0 && flowerbed[i] == 0) {
-          flowerbed[i] = 1;
-          n--;
-        }
-      } else {
-        if (flowerbed[down] == 0 && flowerbed[up] == 0 && flowerbed[i] == 0) {
-          flowerbed[i] = 1;
-          n--;
-        }
-      }
+        printIntArray(flowerbed);
+        return n <= 0;
     }
-    printIntArray(flowerbed);
-    return n <= 0;
-  }
+
+    private static boolean oldCanPlaceFlowers(int[] flowerbed, int n) {
+        if (n / 2 >= flowerbed.length) return false;
+        for (int i = 0; i < flowerbed.length; i++) {
+            int down = i - 1, up = i + 1;
+            if (down < 0 && up >= flowerbed.length) {
+                if (flowerbed[i] == 0) {
+                    flowerbed[i] = 1;
+                    n--;
+                }
+            } else if (down < 0) {
+                if (flowerbed[up] == 0 && flowerbed[i] == 0) {
+                    flowerbed[i] = 1;
+                    n--;
+                }
+            } else if (up >= flowerbed.length) {
+                if (flowerbed[down] == 0 && flowerbed[i] == 0) {
+                    flowerbed[i] = 1;
+                    n--;
+                }
+            } else {
+                if (flowerbed[down] == 0 && flowerbed[up] == 0 && flowerbed[i] == 0) {
+                    flowerbed[i] = 1;
+                    n--;
+                }
+            }
+        }
+        printIntArray(flowerbed);
+        return n <= 0;
+    }
 }

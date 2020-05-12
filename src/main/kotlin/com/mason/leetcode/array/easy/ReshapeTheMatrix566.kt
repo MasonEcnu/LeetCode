@@ -39,16 +39,16 @@ import java.util.*
  */
 object ReshapeTheMatrix566 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val nums = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
-    val r = 1
-    val c = 4
-    val result = matrixReshape(nums, r, c)
-    printArray(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val nums = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
+        val r = 1
+        val c = 4
+        val result = matrixReshape(nums, r, c)
+        printArray(result)
+    }
 
-  private fun matrixReshape(nums: Array<IntArray>, r: Int, c: Int): Array<IntArray> {
+    private fun matrixReshape(nums: Array<IntArray>, r: Int, c: Int): Array<IntArray> {
 //    val m = nums.size // 行
 //    val n = nums[0].size  // 列
 //    if (r * c != m * n || (r == m && c == n)) return nums
@@ -62,22 +62,22 @@ object ReshapeTheMatrix566 {
 //    }
 //    return result
 
-    // 队列法
-    val m = nums.size // 行
-    val n = nums[0].size  // 列
-    if (r * c != m * n || (r == m && c == n)) return nums
-    val queue: Queue<Int> = LinkedList<Int>()
-    val result = Array(size = r, init = { IntArray(size = c) })
-    nums.forEach { outer ->
-      outer.forEach { inner ->
-        queue.add(inner)
-      }
+        // 队列法
+        val m = nums.size // 行
+        val n = nums[0].size  // 列
+        if (r * c != m * n || (r == m && c == n)) return nums
+        val queue: Queue<Int> = LinkedList<Int>()
+        val result = Array(size = r, init = { IntArray(size = c) })
+        nums.forEach { outer ->
+            outer.forEach { inner ->
+                queue.add(inner)
+            }
+        }
+        (0 until r).forEach { outer ->
+            (0 until c).forEach { inner ->
+                result[outer][inner] = queue.remove()
+            }
+        }
+        return result
     }
-    (0 until r).forEach { outer ->
-      (0 until c).forEach { inner ->
-        result[outer][inner] = queue.remove()
-      }
-    }
-    return result
-  }
 }

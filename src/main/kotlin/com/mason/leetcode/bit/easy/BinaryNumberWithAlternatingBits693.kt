@@ -32,25 +32,25 @@ package com.mason.leetcode.bit.easy
 object BinaryNumberWithAlternatingBits693 {
 
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val n = 1
-    val result = hasAlternatingBits(n)
-    println(result)
-  }
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val n = 1
+        val result = hasAlternatingBits(n)
+        println(result)
+    }
 
-  private fun hasAlternatingBits(n: Int): Boolean {
+    private fun hasAlternatingBits(n: Int): Boolean {
 //    val bits = n.toString(2).toCharArray()
 //    (0 until bits.size - 1).forEach {
 //      if (bits[it] == bits[it + 1]) return false
 //    }
 //    return true
 
-    return n.toString(2).mapIndexed { index, c ->
-      if (index and 1 == 0) c == '1'
-      else c == '0'
-    }.all {
-      it
+        return n.toString(2).mapIndexed { index, c ->
+            if (index and 1 == 0) c == '1'
+            else c == '0'
+        }.all {
+            it
+        }
     }
-  }
 }

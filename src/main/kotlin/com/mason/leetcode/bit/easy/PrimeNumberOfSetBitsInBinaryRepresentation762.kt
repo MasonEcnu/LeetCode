@@ -32,32 +32,32 @@ package com.mason.leetcode.bit.easy
  */
 object PrimeNumberOfSetBitsInBinaryRepresentation762 {
 
-  @JvmStatic
-  fun main(args: Array<String>) {
-    val L = 6
-    val R = 10
-    val result = countPrimeSetBits(L, R)
-    println(result)
-  }
-
-  private fun countPrimeSetBits(L: Int, R: Int): Int {
-    var result = 0
-    (L..R).forEach { range ->
-      val biStr = range.toString(2)
-      val count = biStr.count { it == '1' }
-      if (count.isPrime()) result++
+    @JvmStatic
+    fun main(args: Array<String>) {
+        val L = 6
+        val R = 10
+        val result = countPrimeSetBits(L, R)
+        println(result)
     }
-    return result
-  }
 
-  private fun Int.isPrime(): Boolean {
+    private fun countPrimeSetBits(L: Int, R: Int): Int {
+        var result = 0
+        (L..R).forEach { range ->
+            val biStr = range.toString(2)
+            val count = biStr.count { it == '1' }
+            if (count.isPrime()) result++
+        }
+        return result
+    }
+
+    private fun Int.isPrime(): Boolean {
 //    if (this < 2) return false
 //    (2..Math.sqrt(this.toDouble()).toInt()).forEach { range ->
 //      if (this % range == 0) return false
 //    }
 //    return true
 
-    return this == 2 || this == 3 || this == 5 || this == 7 || this == 11
-        || this == 13 || this == 17 || this == 19
-  }
+        return this == 2 || this == 3 || this == 5 || this == 7 || this == 11
+                || this == 13 || this == 17 || this == 19
+    }
 }
