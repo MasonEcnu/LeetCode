@@ -1,6 +1,6 @@
 package com.mason.leetcode.tools
 
-import com.mason.leetcode.linked.easy.ListNode
+import com.mason.leetcode.struct.ListNode
 
 /**
  * Created by mwu on 2018/10/26

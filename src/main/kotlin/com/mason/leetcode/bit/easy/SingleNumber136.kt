@@ -49,4 +49,10 @@ object SingleNumber136 {
         }
         return countMap.entries.find { it.value == 1 }?.key ?: 0
     }
+
+    private fun singleNumber1(nums: IntArray): Int {
+        var result = 0
+        nums.forEach { num -> result = result xor num }
+        return result
+    }
 }

@@ -1,5 +1,7 @@
 package com.mason.leetcode.linked.easy
 
+import com.mason.leetcode.struct.ListNode
+
 /**
  * Given a non-empty, singly linked list with head node head, return a middle node of linked list.
  * If there are two middle nodes, return the second middle node.
@@ -19,11 +21,6 @@ package com.mason.leetcode.linked.easy
  * Note:
  * The number of nodes in the given list will be between 1 and 100.
  */
-
-class ListNode(var `val`: Int = 0) {
-    var next: ListNode? = null
-}
-
 object MergeTwoBinaryTrees617 {
 
     @JvmStatic

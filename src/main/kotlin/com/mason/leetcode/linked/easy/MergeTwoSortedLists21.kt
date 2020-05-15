@@ -1,5 +1,6 @@
 package com.mason.leetcode.linked.easy
 
+import com.mason.leetcode.struct.ListNode
 import com.mason.leetcode.tools.printLinkedList
 
 /**
