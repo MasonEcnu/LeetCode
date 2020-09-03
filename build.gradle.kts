@@ -16,11 +16,9 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.3.72")
     implementation("com.alibaba:fastjson:1.2.58")
     implementation("com.google.code.gson:gson:2.7")
     implementation("com.google.guava:guava:24.1.1-jre")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1")
     implementation("org.slf4j:slf4j-api:1.7.21")
     implementation(kotlin("stdlib-jdk8"))
     testImplementation("junit", "junit", "4.12")
